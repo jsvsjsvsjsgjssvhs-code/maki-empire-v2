@@ -186,8 +186,13 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
    <img id="detailsCover" class="details-cover" alt="غلاف المانهوا">
    <div style="flex:1;min-width:200px">
     <h2 id="detailsTitle"></h2>
+
+    <h3>التصنيف</h3>
     <span id="detailsCategory" class="tag"></span>
+
+    <h3>القصة</h3>
     <p id="detailsDescription" class="muted"></p>
+
     <button id="favoriteButton" class="secondary" onclick="toggleFavorite()">إضافة للمفضلة</button>
     <button id="followButton" class="secondary" onclick="toggleFollow()">متابعة التحديثات</button>
    </div>
@@ -276,7 +281,7 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
 
 <script>
 const SUPABASE_URL="https://iikzgiainkyhmrkalhey.supabase.co";
-const SUPABASE_KEY="sb_publishable_Vf_1I5n_C01aJev3jzQMaQ_8cnsUxRK";
+const SUPABASE_KEY="sb_publishable_Vf_1N5c_C01aJev3jzQMaQ_8cnsUxRK";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const COVER_BUCKET="manhwa-images";
 const PAGES_BUCKET="manhwa-images";
