@@ -655,12 +655,47 @@ function editChapter(id){
  text("chapterFormTitle","تعديل الفصل");
  scrollToSection("admin");
 }
+
+/* حذف المانهوا - تم إصلاح التحقق من نتيجة الحذف */
 async function deleteManga(id){
- if(!admin||!confirm("متأكدة تريدين حذف المانهوا؟"))return;
- const {error}=await db.from("manhwa").delete().eq("id",id);
- if(error){alert("تعذّر الحذف: "+error.message);return;}
- await loadAll();
+ if(!admin || !confirm("متأكدة تريدين حذف المانهوا وكل فصولها؟"))return;
+
+ try{
+  let {data,error}=await db
+   .from("manhwa")
+   .delete()
+   .eq("id",id)
+   .select("id");
+
+  if(error && error.code==="23503"){
+   const {error:chapterError}=await db
+    .from("chapters")
+    .delete()
+    .eq("manhwa_id",id);
+
+   if(chapterError)throw chapterError;
+
+   ({data,error}=await db
+    .from("manhwa")
+    .delete()
+    .eq("id",id)
+    .select("id"));
+  }
+
+  if(error)throw error;
+
+  if(!data || data.length===0){
+   throw new Error("قاعدة البيانات لم تسمح بالحذف. تحققي من صلاحيات الحذف RLS.");
+  }
+
+  await loadAll();
+  alert("تم حذف المانهوا بنجاح.");
+
+ }catch(e){
+  alert("تعذّر الحذف: "+e.message);
+ }
 }
+
 async function deleteChapter(id){
  if(!admin||!confirm("متأكدة تريدين حذف الفصل؟"))return;
  const {error}=await db.from("chapters").delete().eq("id",id);
