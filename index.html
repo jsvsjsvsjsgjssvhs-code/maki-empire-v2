@@ -8,48 +8,23 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#090609;--panel:#160d13;--panel2:#21121b;
-  --red:#b20d32;--red2:#e31c4b;--gold:#c6a66a;
-  --white:#fff4f7;--muted:#bcaab2;--border:#542034;
-}
+:root{--bg:#090609;--panel:#160d13;--panel2:#21121b;--red:#b20d32;--red2:#e31c4b;--gold:#c6a66a;--white:#fff4f7;--muted:#bcaab2;--border:#542034}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;background:
- radial-gradient(ellipse at 50% 0%,#4b0b20 0%,transparent 38%),
- linear-gradient(145deg,#090609,#10080e 55%,#080608);
- color:var(--white);font-family:'Cairo',sans-serif
-}
+body{margin:0;background:radial-gradient(ellipse at 50% 0%,#4b0b20 0%,transparent 38%),linear-gradient(145deg,#090609,#10080e 55%,#080608);color:var(--white);font-family:'Cairo',sans-serif}
 button,input,textarea,select{font-family:inherit}
-button,.btn{
- border:1px solid #8e1b3c;background:linear-gradient(135deg,#a50c30,#51091e);
- color:white;padding:9px 14px;border-radius:8px;font-weight:700;cursor:pointer
-}
+button,.btn{border:1px solid #8e1b3c;background:linear-gradient(135deg,#a50c30,#51091e);color:white;padding:9px 14px;border-radius:8px;font-weight:700;cursor:pointer}
 button:hover{filter:brightness(1.2)}
 button:disabled{opacity:.5;cursor:not-allowed}
 .secondary{background:#21151c;border-color:#513344}
 .danger{background:#671024;border-color:#a12b46}
-header{
- position:sticky;top:0;z-index:20;background:#090609ed;
- border-bottom:1px solid #5b142b;padding:12px 4%;
- display:flex;align-items:center;justify-content:space-between;
- gap:12px;flex-wrap:wrap;backdrop-filter:blur(12px)
-}
+header{position:sticky;top:0;z-index:20;background:#090609ed;border-bottom:1px solid #5b142b;padding:12px 4%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;backdrop-filter:blur(12px)}
 .logo{font-weight:900;font-size:22px;white-space:nowrap}
 .logo span{color:#e51d4d}
 nav{display:flex;gap:7px;flex-wrap:wrap}
 main{width:min(1200px,94%);margin:auto;padding:22px 0 60px}
 section{margin-bottom:34px}
-.hero{
- min-height:380px;border:1px solid #70142e;border-radius:18px;
- overflow:hidden;display:flex;align-items:center;padding:35px;
- background:
- linear-gradient(90deg,#090609 0%,#090609bb 48%,#09060933 100%),
- url('maki-hero.png') center 25%/cover,
- radial-gradient(circle at 75% 30%,#8f1535,#170811 65%);
- box-shadow:0 18px 60px #0009
-}
+.hero{min-height:380px;border:1px solid #70142e;border-radius:18px;overflow:hidden;display:flex;align-items:center;padding:35px;background:linear-gradient(90deg,#090609 0%,#090609bb 48%,#09060933 100%),url('maki-hero.png') center 25%/cover,radial-gradient(circle at 75% 30%,#8f1535,#170811 65%);box-shadow:0 18px 60px #0009}
 .hero-content{max-width:570px}
 .hero h1{font-size:clamp(30px,5vw,55px);line-height:1.4;margin:0 0 12px}
 .hero h1 span{color:#f02755}
@@ -57,17 +32,11 @@ section{margin-bottom:34px}
 .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 15px}
 .section-head h2{margin:0;font-size:23px}
-.section-head h2:before{
- content:"";display:inline-block;width:5px;height:23px;
- background:#d71948;margin-left:10px;vertical-align:middle;border-radius:5px
-}
+.section-head h2:before{content:"";display:inline-block;width:5px;height:23px;background:#d71948;margin-left:10px;vertical-align:middle;border-radius:5px}
 .muted{color:var(--muted)}
 .small{font-size:12px;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:15px}
-.card{
- overflow:hidden;border:1px solid var(--border);border-radius:12px;
- background:linear-gradient(160deg,#21121b,#100b10);transition:.2s;min-width:0
-}
+.card{overflow:hidden;border:1px solid var(--border);border-radius:12px;background:linear-gradient(160deg,#21121b,#100b10);transition:.2s;min-width:0}
 .card:hover{transform:translateY(-3px);border-color:#bd2349}
 .cover{width:100%;height:235px;object-fit:cover;display:block;background:#24141d}
 .card-body{padding:11px}
@@ -76,20 +45,14 @@ section{margin-bottom:34px}
 .card-actions{display:flex;gap:6px;flex-wrap:wrap}
 .card-actions button{font-size:12px;padding:7px 9px}
 .wide-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.wide-card{
- display:flex;gap:13px;padding:11px;background:#1a1017;
- border:1px solid var(--border);border-radius:12px;min-width:0
-}
+.wide-card{display:flex;gap:13px;padding:11px;background:#1a1017;border:1px solid var(--border);border-radius:12px;min-width:0}
 .wide-card img{width:105px;height:140px;object-fit:cover;border-radius:8px;flex-shrink:0}
 .wide-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
 .wide-info h3{margin:2px 0;font-size:16px}
 .wide-info p{font-size:12px;color:var(--muted);line-height:1.8}
-.tag{font-size:11px;background:#5b1028;color:#ffdce5;padding:3px 8px;border-radius:20px}
+.tag{font-size:11px;background:#5b1028;color:#ffdce5;padding:3px 8px;border-radius:20px;display:inline-block;margin:2px}
 .update-list{display:grid;gap:10px}
-.update{
- display:flex;align-items:center;gap:13px;padding:10px;
- border:1px solid #512034;background:#180f16;border-radius:11px;cursor:pointer
-}
+.update{display:flex;align-items:center;gap:13px;padding:10px;border:1px solid #512034;background:#180f16;border-radius:11px;cursor:pointer}
 .update:hover{border-color:#e02050;background:#24111b}
 .update img{width:72px;height:94px;object-fit:cover;border-radius:7px;flex-shrink:0}
 .update-info{min-width:0;flex:1}
@@ -99,39 +62,38 @@ section{margin-bottom:34px}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}
 .field{margin:10px 0}
 label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
-input,textarea,select{
- width:100%;padding:11px;border-radius:8px;
- border:1px solid #573044;background:#0d090d;color:white
-}
+input,textarea,select{width:100%;padding:11px;border-radius:8px;border:1px solid #573044;background:#0d090d;color:white}
 select option{background:#160d13;color:white}
 textarea{min-height:90px;resize:vertical}
 .panel{background:#180f16;border:1px solid var(--border);border-radius:13px;padding:17px}
 .hidden{display:none!important}
 .message{padding:10px;border-radius:8px;background:#2b1822;color:#f5cbd7;margin-top:10px;white-space:pre-wrap}
 .admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.chapter-row{
- display:flex;justify-content:space-between;align-items:center;gap:10px;
- padding:11px;margin:8px 0;background:#21151d;border:1px solid #482237;border-radius:9px
-}
+.chapter-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px;margin:8px 0;background:#21151d;border:1px solid #482237;border-radius:9px}
 .chapter-row span{font-size:14px}
 .reader{max-width:850px;margin:auto}
 .reader img{display:block;width:100%;height:auto;margin:0 auto 8px}
 .details-cover{width:170px;max-height:240px;object-fit:cover;border-radius:10px}
 .details-layout{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed #633044;border-radius:10px}
+.category-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:10px;background:#0d090d;border:1px solid #573044;border-radius:8px;max-height:230px;overflow:auto}
+.category-options label{display:flex;align-items:center;gap:7px;margin:0;padding:5px;font-size:12px;font-weight:500}
+.category-options input{width:auto;accent-color:#e31c4b}
 footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b}
 @media(max-width:650px){
- header{position:relative}
- .hero{min-height:300px;padding:22px;background-position:60% center}
- .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .cover{height:190px}
- .admin-grid{grid-template-columns:1fr}
- .wide-list{grid-template-columns:1fr}
- .wide-card img{width:90px;height:125px}
+header{position:relative}
+.hero{min-height:300px;padding:22px;background-position:60% center}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cover{height:190px}
+.admin-grid{grid-template-columns:1fr}
+.wide-list{grid-template-columns:1fr}
+.wide-card img{width:90px;height:125px}
+.category-options{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
 </head>
 <body>
+
 <header>
  <div class="logo">ماكي <span>الإمبراطورية</span></div>
  <nav>
@@ -161,14 +123,17 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
   <div class="section-head"><h2>آخر التحديثات</h2><span class="small">الفصول الأحدث أولاً</span></div>
   <div id="updatesList" class="update-list"><div class="empty">جاري تحميل التحديثات...</div></div>
  </section>
+
  <section id="popular">
   <div class="section-head"><h2>الأكثر شعبية</h2></div>
   <div id="popularList" class="wide-list"></div>
  </section>
+
  <section id="recent">
   <div class="section-head"><h2>أضيف حديثاً</h2></div>
   <div id="recentList" class="grid"></div>
  </section>
+
  <section id="library">
   <div class="section-head"><h2>مكتبة المانهوا</h2></div>
   <div class="toolbar">
@@ -186,13 +151,10 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
    <img id="detailsCover" class="details-cover" alt="غلاف المانهوا">
    <div style="flex:1;min-width:200px">
     <h2 id="detailsTitle"></h2>
-
     <h3>التصنيف</h3>
-    <span id="detailsCategory" class="tag"></span>
-
+    <div id="detailsCategory"></div>
     <h3>القصة</h3>
     <p id="detailsDescription" class="muted"></p>
-
     <button id="favoriteButton" class="secondary" onclick="toggleFavorite()">إضافة للمفضلة</button>
     <button id="followButton" class="secondary" onclick="toggleFollow()">متابعة التحديثات</button>
    </div>
@@ -231,24 +193,20 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
    <button class="secondary" onclick="closeAdmin()">إغلاق</button>
   </div>
   <p class="small">هذه اللوحة مخصصة لحساب الإدارة المصرّح له فقط.</p>
+
   <div class="admin-grid">
    <div class="panel">
     <h3 id="mangaFormTitle">إضافة مانهوا</h3>
     <input type="hidden" id="editMangaId">
     <div class="field"><label>اسم المانهوا</label><input id="mTitle"></div>
     <div class="field">
-     <label>التصنيف</label>
-     <select id="mCategory">
-      <option value="">اختاري التصنيف</option>
-      <option>أكشن</option><option>فانتازيا</option><option>رومانسية</option>
-      <option>دراما</option><option>غموض</option><option>رعب</option>
-      <option>تاريخي</option><option>مدرسي</option><option>مغامرات</option>
-      <option>ياوي (BL)</option><option>ياوري (GL)</option>
-      <option>كوميديا</option><option>إثارة</option><option>خيال علمي</option>
-      <option>أخرى</option>
-     </select>
+     <label>اختاري تصنيفاً أو أكثر</label>
+     <div id="mCategoryOptions" class="category-options"></div>
     </div>
-    <div class="field"><label>أو اكتبي تصنيفاً جديداً</label><input id="customCategory" placeholder="تصنيف جديد اختياري"></div>
+    <div class="field">
+     <label>أو اكتبي تصنيفات جديدة (افصلي بينها بفاصلة)</label>
+     <input id="customCategory" placeholder="مثلاً: انتقام، تناسخ">
+    </div>
     <div class="field"><label>الوصف</label><textarea id="mDescription"></textarea></div>
     <div class="field"><label>صورة الغلاف</label><input id="mCover" type="file" accept="image/*"></div>
     <button onclick="saveManga()">حفظ المانهوا</button>
@@ -277,457 +235,565 @@ footer{padding:28px;text-align:center;border-top:1px solid #421427;color:#a9909b
   <div id="personalList" class="grid"></div>
  </section>
 </main>
+
 <footer>ماكي الإمبراطورية © 2026</footer>
 
 <script>
 const SUPABASE_URL="https://iikzgiainkyhmrkalhey.supabase.co";
-const SUPABASE_KEY="sb_publishable_Vf_1N5c_C01aJev3jzQMaQ_8cnsUxRK";
+const SUPABASE_KEY="sb_publishable_Vf_1N5n_C01aJev3jzQMaQ_8cnsUxRK";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const COVER_BUCKET="manhwa-images";
 const PAGES_BUCKET="manhwa-images";
 
 const DEFAULT_CATEGORIES=[
- "أكشن","فانتازيا","رومانسية","دراما","غموض","رعب",
- "تاريخي","مدرسي","مغامرات","ياوي (BL)","ياوري (GL)",
- "كوميديا","إثارة","خيال علمي","أخرى"
+"أكشن","مغامرات","فانتازيا","خيال علمي","رومانسية","دراما",
+"كوميديا","شريحة من الحياة","غموض","رعب","إثارة","نفسي",
+"تاريخي","عسكري","مدرسي","رياضي","فنون قتالية","أبراج",
+"عودة بالزمن","تناسخ","انتقال لعالم آخر","انتقام","بقاء",
+"طب","موسيقى","طبخ","ياوي (BL)","ياوري (GL)","حريم",
+"عكس الحريم","أخرى"
 ];
 
 let user=null,admin=false,mangas=[],chapters=[];
 let selectedManga=null,selectedChapter=null,chapterStack=[],chapterIndex=0;
+
 const $=id=>document.getElementById(id);
-const favKey="maki_favorites",historyKey="maki_history",followKey="maki_followed";
+const favKey="maki_favorites";
+const historyKey="maki_history";
+const followKey="maki_followed";
 
 function getSaved(key){
- try{return JSON.parse(localStorage.getItem(key)||"[]")}catch(e){return []}
+try{return JSON.parse(localStorage.getItem(key)||"[]")}catch(e){return []}
 }
 function saveSaved(key,value){localStorage.setItem(key,JSON.stringify(value))}
 function text(id,value){$(id).textContent=value??""}
 function msg(id,value,error=false){
- $(id).textContent=value;$(id).classList.remove("hidden");
- $(id).style.color=error?"#ff9aaa":"#b9f5c8";
+$(id).textContent=value;
+$(id).classList.remove("hidden");
+$(id).style.color=error?"#ff9aaa":"#b9f5c8";
 }
 function hide(id){$(id).classList.add("hidden")}
 function show(id){$(id).classList.remove("hidden")}
 function safe(value){
- return String(value??"").replace(/[&<>"']/g,c=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- }[c]));
+return String(value??"").replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
 }
 function scrollToSection(id){$(id).scrollIntoView({behavior:"smooth"})}
+
 function home(){
- ["details","reader","auth","admin","personalResults"].forEach(hide);
- ["homeHero","updates","popular","recent","library"].forEach(show);
- window.scrollTo({top:0,behavior:"smooth"});
+["details","reader","auth","admin","personalResults"].forEach(hide);
+["homeHero","updates","popular","recent","library"].forEach(show);
+window.scrollTo({top:0,behavior:"smooth"});
 }
 function hideMainSections(){
- ["homeHero","updates","popular","recent","library","details","reader","personalResults"].forEach(hide);
+["homeHero","updates","popular","recent","library","details","reader","personalResults"].forEach(hide);
 }
 function imageMarkup(url,title,cls="cover"){
- const fallback="https://placehold.co/400x600/1b1018/ffffff?text=Maki";
- return `<img class="${cls}" src="${safe(url||fallback)}" alt="${safe(title)}" loading="lazy">`;
-}
-function mangaCard(m){
- return `<article class="card">
- ${imageMarkup(m.cover_url,m.title)}
- <div class="card-body"><h3>${safe(m.title)}</h3>
- <p>${safe(m.category||"غير مصنف")}</p>
- <div class="card-actions">
- <button onclick="openManga(${Number(m.id)})">التفاصيل</button>
- <button class="secondary" onclick="quickFavorite(${Number(m.id)})">♡</button>
- </div></div></article>`;
-}
-function wideCard(m){
- const count=chapters.filter(c=>Number(c.manhwa_id)===Number(m.id)).length;
- return `<article class="wide-card">
- ${imageMarkup(m.cover_url,m.title,"")}
- <div class="wide-info"><span class="tag">الأكثر متابعة</span>
- <h3>${safe(m.title)}</h3>
- <p>${safe(m.category||"غير مصنف")}<br>عدد الفصول: ${count}</p>
- <button onclick="openManga(${Number(m.id)})">استكشاف</button>
- </div></article>`;
+const fallback="https://placehold.co/400x600/1b1018/ffffff?text=Maki";
+return `<img class="${cls}" src="${safe(url||fallback)}" alt="${safe(title)}" loading="lazy">`;
 }
 
-/* التصنيفات: الثابتة والمضافة من لوحة الإدارة */
+/* قراءة التصنيفات القديمة والجديدة */
+function getMangaCategories(value){
+if(Array.isArray(value))return value.map(x=>String(x).trim()).filter(Boolean);
+let raw=String(value||"").trim();
+if(!raw)return [];
+if(raw.startsWith("[")&&raw.endsWith("]")){
+try{
+const parsed=JSON.parse(raw);
+if(Array.isArray(parsed))return parsed.map(x=>String(x).trim()).filter(Boolean);
+}catch(e){}
+}
+return raw.split(/[،,]/).map(x=>x.trim()).filter(Boolean);
+}
+function uniqueCategories(list){
+return [...new Set(list.map(x=>String(x).trim()).filter(Boolean))];
+}
 function allCategories(){
- return [...new Set([
-  ...DEFAULT_CATEGORIES,
-  ...mangas.map(m=>String(m.category||"").trim()).filter(Boolean)
- ])];
+return uniqueCategories([
+...DEFAULT_CATEGORIES,
+...mangas.flatMap(m=>getMangaCategories(m.category))
+]);
+}
+function renderAdminCategories(selected=[]){
+const chosen=new Set(selected);
+$("mCategoryOptions").innerHTML=allCategories().map(cat=>
+`<label><input type="checkbox" class="m-category-check" value="${safe(cat)}" ${chosen.has(cat)?"checked":""}>${safe(cat)}</label>`
+).join("");
+}
+function selectedAdminCategories(){
+return [...document.querySelectorAll(".m-category-check:checked")].map(el=>el.value);
 }
 function renderCategoryFilters(){
- const select=$("categoryFilter");
- const current=select.value;
- select.innerHTML='<option value="">كل التصنيفات</option>'+
-  allCategories().map(c=>`<option value="${safe(c)}">${safe(c)}</option>`).join("");
- if(allCategories().includes(current))select.value=current;
+const select=$("categoryFilter");
+const current=select.value;
+select.innerHTML='<option value="">كل التصنيفات</option>'+
+allCategories().map(c=>`<option value="${safe(c)}">${safe(c)}</option>`).join("");
+if(allCategories().includes(current))select.value=current;
 }
+
+/* بطاقات المانهوا */
+function mangaCard(m){
+const cats=getMangaCategories(m.category);
+return `<article class="card">
+${imageMarkup(m.cover_url,m.title)}
+<div class="card-body">
+<h3>${safe(m.title)}</h3>
+<p>${safe(cats.join("، ")||"غير مصنف")}</p>
+<div class="card-actions">
+<button onclick="openManga(${Number(m.id)})">التفاصيل</button>
+<button class="secondary" onclick="quickFavorite(${Number(m.id)})">♡</button>
+</div></div></article>`;
+}
+function wideCard(m){
+const count=chapters.filter(c=>Number(c.manhwa_id)===Number(m.id)).length;
+return `<article class="wide-card">
+${imageMarkup(m.cover_url,m.title,"")}
+<div class="wide-info">
+<span class="tag">الأكثر متابعة</span>
+<h3>${safe(m.title)}</h3>
+<p>${safe(getMangaCategories(m.category).join("، ")||"غير مصنف")}<br>عدد الفصول: ${count}</p>
+<button onclick="openManga(${Number(m.id)})">استكشاف</button>
+</div></article>`;
+}
+
 function renderLibrary(){
- renderCategoryFilters();
- const term=$("search").value.trim().toLowerCase();
- const category=$("categoryFilter").value;
- const filtered=mangas.filter(m=>
-  (!term||(m.title||"").toLowerCase().includes(term))&&
-  (!category||m.category===category)
- );
- $("libraryList").innerHTML=filtered.length?
-  filtered.map(mangaCard).join(""):'<div class="empty">ماكو مانهوا تطابق البحث.</div>';
+renderCategoryFilters();
+const term=$("search").value.trim().toLowerCase();
+const category=$("categoryFilter").value;
+const filtered=mangas.filter(m=>
+(!term||(m.title||"").toLowerCase().includes(term))&&
+(!category||getMangaCategories(m.category).includes(category))
+);
+$("libraryList").innerHTML=filtered.length?
+filtered.map(mangaCard).join(""):'<div class="empty">ماكو مانهوا تطابق البحث.</div>';
 }
+
 async function loadAll(){
- const [m,c]=await Promise.all([
-  db.from("manhwa").select("*"),
-  db.from("chapters").select("*")
- ]);
- if(m.error){
-  $("libraryList").innerHTML='<div class="empty">تعذّر تحميل المانهوا: '+safe(m.error.message)+'</div>';
-  return;
- }
- if(c.error){
-  $("updatesList").innerHTML='<div class="empty">تعذّر تحميل الفصول: '+safe(c.error.message)+'</div>';
-  return;
- }
- mangas=m.data||[];chapters=c.data||[];
- chapters.sort((a,b)=>{
-  const da=new Date(a.created_at||0).getTime();
-  const dbb=new Date(b.created_at||0).getTime();
-  return dbb-da||Number(b.id)-Number(a.id);
- });
- renderAll();
+const [m,c]=await Promise.all([
+db.from("manhwa").select("*"),
+db.from("chapters").select("*")
+]);
+if(m.error){
+$("libraryList").innerHTML='<div class="empty">تعذّر تحميل المانهوا: '+safe(m.error.message)+'</div>';
+return;
+}
+if(c.error){
+$("updatesList").innerHTML='<div class="empty">تعذّر تحميل الفصول: '+safe(c.error.message)+'</div>';
+return;
+}
+mangas=m.data||[];
+chapters=c.data||[];
+chapters.sort((a,b)=>{
+const da=new Date(a.created_at||0).getTime();
+const dbb=new Date(b.created_at||0).getTime();
+return dbb-da||Number(b.id)-Number(a.id);
+});
+renderAll();
 }
 function renderAll(){
- renderLibrary();renderPopular();renderRecent();renderUpdates();fillMangaSelect();
- if(admin)renderAdminList();
+renderAdminCategories();
+renderLibrary();
+renderPopular();
+renderRecent();
+renderUpdates();
+fillMangaSelect();
+if(admin)renderAdminList();
 }
 function renderPopular(){
- const sorted=[...mangas].sort((a,b)=>
-  chapters.filter(c=>Number(c.manhwa_id)===Number(b.id)).length-
-  chapters.filter(c=>Number(c.manhwa_id)===Number(a.id)).length
- );
- $("popularList").innerHTML=sorted.slice(0,6).map(wideCard).join("")||
-  '<div class="empty">ماكو مانهوا حالياً.</div>';
+const sorted=[...mangas].sort((a,b)=>
+chapters.filter(c=>Number(c.manhwa_id)===Number(b.id)).length-
+chapters.filter(c=>Number(c.manhwa_id)===Number(a.id)).length
+);
+$("popularList").innerHTML=sorted.slice(0,6).map(wideCard).join("")||
+'<div class="empty">ماكو مانهوا حالياً.</div>';
 }
 function renderRecent(){
- const sorted=[...mangas].sort((a,b)=>Number(b.id)-Number(a.id));
- $("recentList").innerHTML=sorted.slice(0,8).map(mangaCard).join("")||
-  '<div class="empty">ماكو إضافات جديدة.</div>';
+const sorted=[...mangas].sort((a,b)=>Number(b.id)-Number(a.id));
+$("recentList").innerHTML=sorted.slice(0,8).map(mangaCard).join("")||
+'<div class="empty">ماكو إضافات جديدة.</div>';
 }
 function renderUpdates(){
- const latest=chapters.slice(0,12);
- if(!latest.length){$("updatesList").innerHTML='<div class="empty">ماكو فصول جديدة حالياً.</div>';return;}
- $("updatesList").innerHTML=latest.map(ch=>{
-  const m=mangas.find(x=>Number(x.id)===Number(ch.manhwa_id));
-  if(!m)return "";
-  const date=ch.created_at?new Date(ch.created_at).toLocaleDateString("ar-IQ"):"";
-  return `<div class="update" onclick="openManga(${Number(m.id)},${Number(ch.id)})">
-   ${imageMarkup(m.cover_url,m.title,"")}
-   <div class="update-info"><strong>${safe(m.title)}</strong>
-   <span>الفصل ${safe(ch.title)}</span><br><span>${safe(date)}</span></div>
-   <span class="new-label">جديد</span></div>`;
- }).join("");
+const latest=chapters.slice(0,12);
+if(!latest.length){
+$("updatesList").innerHTML='<div class="empty">ماكو فصول جديدة حالياً.</div>';
+return;
+}
+$("updatesList").innerHTML=latest.map(ch=>{
+const m=mangas.find(x=>Number(x.id)===Number(ch.manhwa_id));
+if(!m)return "";
+const date=ch.created_at?new Date(ch.created_at).toLocaleDateString("ar-IQ"):"";
+return `<div class="update" onclick="openManga(${Number(m.id)},${Number(ch.id)})">
+${imageMarkup(m.cover_url,m.title,"")}
+<div class="update-info">
+<strong>${safe(m.title)}</strong>
+<span>الفصل ${safe(ch.title)}</span><br>
+<span>${safe(date)}</span>
+</div>
+<span class="new-label">جديد</span>
+</div>`;
+}).join("");
 }
 function fillMangaSelect(){
- $("chapterManga").innerHTML='<option value="">اختاري المانهوا</option>'+
-  mangas.map(m=>`<option value="${Number(m.id)}">${safe(m.title)}</option>`).join("");
+$("chapterManga").innerHTML='<option value="">اختاري المانهوا</option>'+
+mangas.map(m=>`<option value="${Number(m.id)}">${safe(m.title)}</option>`).join("");
 }
 
 /* الحسابات */
 async function refreshUser(){
- const {data}=await db.auth.getUser();
- user=data?.user||null;
- admin=user?.app_metadata?.role==="admin";
- $("loginNav").classList.toggle("hidden",!!user);
- $("logoutNav").classList.toggle("hidden",!user);
- $("adminNav").classList.toggle("hidden",!admin);
- if(!admin)hide("admin");
+const {data}=await db.auth.getUser();
+user=data?.user||null;
+admin=user?.app_metadata?.role==="admin";
+$("loginNav").classList.toggle("hidden",!!user);
+$("logoutNav").classList.toggle("hidden",!user);
+$("adminNav").classList.toggle("hidden",!admin);
+if(!admin)hide("admin");
 }
 function openAuth(){show("auth");scrollToSection("auth")}
 function closeAuth(){hide("auth")}
 async function signUp(){
- const email=$("authEmail").value.trim(),password=$("authPassword").value;
- if(!email||password.length<6){msg("authMessage","اكتبي البريد وكلمة مرور من 6 أحرف على الأقل.",true);return;}
- const {error}=await db.auth.signUp({email,password});
- if(error){msg("authMessage",error.message,true);return;}
- msg("authMessage","تم إنشاء الحساب. إذا طلب تأكيد البريد، افتحي رسالة التأكيد.");
+const email=$("authEmail").value.trim();
+const password=$("authPassword").value;
+if(!email||password.length<6){
+msg("authMessage","اكتبي البريد وكلمة مرور من 6 أحرف على الأقل.",true);
+return;
+}
+const {error}=await db.auth.signUp({email,password});
+if(error){msg("authMessage",error.message,true);return}
+msg("authMessage","تم إنشاء الحساب. إذا طلب تأكيد البريد، افتحي رسالة التأكيد.");
 }
 async function signIn(){
- const email=$("authEmail").value.trim(),password=$("authPassword").value;
- const {error}=await db.auth.signInWithPassword({email,password});
- if(error){msg("authMessage",error.message,true);return;}
- await refreshUser();closeAuth();alert("تم تسجيل الدخول.");
+const email=$("authEmail").value.trim();
+const password=$("authPassword").value;
+const {error}=await db.auth.signInWithPassword({email,password});
+if(error){msg("authMessage",error.message,true);return}
+await refreshUser();
+closeAuth();
+alert("تم تسجيل الدخول.");
 }
 async function logout(){
- await db.auth.signOut();await refreshUser();hide("admin");home();
+await db.auth.signOut();
+await refreshUser();
+hide("admin");
+home();
 }
 db.auth.onAuthStateChange(()=>refreshUser());
 
 /* التفاصيل والقراءة */
 async function openManga(id,chapterId=null){
- selectedManga=mangas.find(m=>Number(m.id)===Number(id));
- if(!selectedManga)return;
- hideMainSections();show("details");
- $("detailsCover").src=selectedManga.cover_url||"";
- text("detailsTitle",selectedManga.title);
- text("detailsCategory",selectedManga.category||"غير مصنف");
- text("detailsDescription",selectedManga.description||"لا يوجد وصف.");
- updateFollowButtons();
- const list=chapters.filter(c=>Number(c.manhwa_id)===Number(id));
- $("detailsChapters").innerHTML=list.length?list.map(c=>
-  `<div class="chapter-row"><span>${safe(c.title)}</span>
-  <button onclick="readChapter(${Number(c.id)})">قراءة الفصل</button></div>`
- ).join(""):'<div class="empty">لا توجد فصول منشورة بعد.</div>';
- if(chapterId)readChapter(chapterId);else scrollToSection("details");
+selectedManga=mangas.find(m=>Number(m.id)===Number(id));
+if(!selectedManga)return;
+hideMainSections();
+show("details");
+$("detailsCover").src=selectedManga.cover_url||"";
+text("detailsTitle",selectedManga.title);
+const cats=getMangaCategories(selectedManga.category);
+$("detailsCategory").innerHTML=cats.length?
+cats.map(c=>`<span class="tag">${safe(c)}</span>`).join(" "):
+'<span class="tag">غير مصنف</span>';
+text("detailsDescription",selectedManga.description||"لا يوجد وصف.");
+updateFollowButtons();
+const list=chapters.filter(c=>Number(c.manhwa_id)===Number(id));
+$("detailsChapters").innerHTML=list.length?list.map(c=>
+`<div class="chapter-row">
+<span>${safe(c.title)}</span>
+<button onclick="readChapter(${Number(c.id)})">قراءة الفصل</button>
+</div>`
+).join(""):'<div class="empty">لا توجد فصول منشورة بعد.</div>';
+if(chapterId)readChapter(chapterId);
+else scrollToSection("details");
 }
 function closeDetails(){hide("details");home()}
 function backToDetails(){hide("reader");show("details");scrollToSection("details")}
 function readChapter(id){
- selectedChapter=chapters.find(c=>Number(c.id)===Number(id));
- if(!selectedChapter)return;
- chapterStack=chapters.filter(c=>Number(c.manhwa_id)===Number(selectedChapter.manhwa_id));
- chapterIndex=chapterStack.findIndex(c=>Number(c.id)===Number(id));
- displayChapter();
+selectedChapter=chapters.find(c=>Number(c.id)===Number(id));
+if(!selectedChapter)return;
+chapterStack=chapters.filter(c=>Number(c.manhwa_id)===Number(selectedChapter.manhwa_id));
+chapterIndex=chapterStack.findIndex(c=>Number(c.id)===Number(id));
+displayChapter();
 }
 function displayChapter(){
- selectedChapter=chapterStack[chapterIndex];
- if(!selectedChapter)return;
- hide("details");show("reader");
- const manga=mangas.find(m=>Number(m.id)===Number(selectedChapter.manhwa_id));
- text("readerTitle",(manga?.title||"مانهوا")+" - "+selectedChapter.title);
- let pages=selectedChapter.pages;
- if(typeof pages==="string"){try{pages=JSON.parse(pages)}catch(e){pages=[]}}
- if(!Array.isArray(pages))pages=[];
- $("readerPages").innerHTML=pages.map((url,i)=>
-  `<img src="${safe(url)}" alt="صفحة ${i+1}" loading="lazy">`
- ).join("")||'<div class="empty">صفحات هذا الفصل غير متوفرة.</div>';
- $("previousChapter").disabled=chapterIndex<=0;
- $("nextChapter").disabled=chapterIndex>=chapterStack.length-1;
- addHistory(selectedChapter.id);scrollToSection("reader");
+selectedChapter=chapterStack[chapterIndex];
+if(!selectedChapter)return;
+hide("details");
+show("reader");
+const manga=mangas.find(m=>Number(m.id)===Number(selectedChapter.manhwa_id));
+text("readerTitle",(manga?.title||"مانهوا")+" - "+selectedChapter.title);
+let pages=selectedChapter.pages;
+if(typeof pages==="string"){
+try{pages=JSON.parse(pages)}catch(e){pages=[]}
+}
+if(!Array.isArray(pages))pages=[];
+$("readerPages").innerHTML=pages.map((url,i)=>
+`<img src="${safe(url)}" alt="صفحة ${i+1}" loading="lazy">`
+).join("")||'<div class="empty">صفحات هذا الفصل غير متوفرة.</div>';
+$("previousChapter").disabled=chapterIndex<=0;
+$("nextChapter").disabled=chapterIndex>=chapterStack.length-1;
+addHistory(selectedChapter.id);
+scrollToSection("reader");
 }
 function moveChapter(direction){
- const next=chapterIndex+direction;
- if(next<0||next>=chapterStack.length)return;
- chapterIndex=next;displayChapter();
+const next=chapterIndex+direction;
+if(next<0||next>=chapterStack.length)return;
+chapterIndex=next;
+displayChapter();
 }
 
 /* المفضلة والسجل والمتابعة */
 function quickFavorite(id){
- let fav=getSaved(favKey);
- if(fav.includes(id))fav=fav.filter(x=>x!==id);else fav.push(id);
- saveSaved(favKey,fav);
- alert(fav.includes(id)?"انضافت للمفضلة.":"انحذفت من المفضلة.");
+let fav=getSaved(favKey);
+if(fav.includes(id))fav=fav.filter(x=>x!==id);
+else fav.push(id);
+saveSaved(favKey,fav);
+alert(fav.includes(id)?"انضافت للمفضلة.":"انحذفت من المفضلة.");
 }
 function toggleFavorite(){
- if(!selectedManga)return;
- let fav=getSaved(favKey),id=Number(selectedManga.id);
- if(fav.includes(id))fav=fav.filter(x=>x!==id);else fav.push(id);
- saveSaved(favKey,fav);updateFollowButtons();
+if(!selectedManga)return;
+let fav=getSaved(favKey),id=Number(selectedManga.id);
+if(fav.includes(id))fav=fav.filter(x=>x!==id);
+else fav.push(id);
+saveSaved(favKey,fav);
+updateFollowButtons();
 }
 function toggleFollow(){
- if(!selectedManga)return;
- let followed=getSaved(followKey),id=Number(selectedManga.id);
- if(followed.includes(id))followed=followed.filter(x=>x!==id);else followed.push(id);
- saveSaved(followKey,followed);updateFollowButtons();
+if(!selectedManga)return;
+let followed=getSaved(followKey),id=Number(selectedManga.id);
+if(followed.includes(id))followed=followed.filter(x=>x!==id);
+else followed.push(id);
+saveSaved(followKey,followed);
+updateFollowButtons();
 }
 function updateFollowButtons(){
- if(!selectedManga)return;
- const id=Number(selectedManga.id);
- $("favoriteButton").textContent=getSaved(favKey).includes(id)?"إزالة من المفضلة":"إضافة للمفضلة";
- $("followButton").textContent=getSaved(followKey).includes(id)?"إلغاء المتابعة":"متابعة التحديثات";
+if(!selectedManga)return;
+const id=Number(selectedManga.id);
+$("favoriteButton").textContent=getSaved(favKey).includes(id)?"إزالة من المفضلة":"إضافة للمفضلة";
+$("followButton").textContent=getSaved(followKey).includes(id)?"إلغاء المتابعة":"متابعة التحديثات";
 }
 function addHistory(id){
- let h=getSaved(historyKey).filter(x=>Number(x)!==Number(id));
- h.unshift(Number(id));saveSaved(historyKey,h.slice(0,40));
+let h=getSaved(historyKey).filter(x=>Number(x)!==Number(id));
+h.unshift(Number(id));
+saveSaved(historyKey,h.slice(0,40));
 }
 function showPersonal(title,items){
- hideMainSections();hide("details");hide("reader");show("personalResults");
- text("personalTitle",title);
- $("personalList").innerHTML=items.length?items.map(mangaCard).join(""):'<div class="empty">ماكو أعمال هنا حالياً.</div>';
- scrollToSection("personalResults");
+hideMainSections();
+hide("details");
+hide("reader");
+show("personalResults");
+text("personalTitle",title);
+$("personalList").innerHTML=items.length?
+items.map(mangaCard).join(""):'<div class="empty">ماكو أعمال هنا حالياً.</div>';
+scrollToSection("personalResults");
 }
 function showFavorites(){
- const ids=getSaved(favKey);
- showPersonal("مفضلتي",mangas.filter(m=>ids.includes(Number(m.id))));
+const ids=getSaved(favKey);
+showPersonal("مفضلتي",mangas.filter(m=>ids.includes(Number(m.id))));
 }
 function showHistory(){
- const ids=getSaved(historyKey);
- const readManga=ids.map(id=>chapters.find(c=>Number(c.id)===Number(id)))
-  .filter(Boolean).map(c=>mangas.find(m=>Number(m.id)===Number(c.manhwa_id))).filter(Boolean);
- showPersonal("سجل القراءة",readManga.filter((m,i,a)=>a.findIndex(x=>x.id===m.id)===i));
+const ids=getSaved(historyKey);
+const readManga=ids.map(id=>chapters.find(c=>Number(c.id)===Number(id)))
+.filter(Boolean)
+.map(c=>mangas.find(m=>Number(m.id)===Number(c.manhwa_id)))
+.filter(Boolean);
+showPersonal("سجل القراءة",readManga.filter((m,i,a)=>a.findIndex(x=>x.id===m.id)===i));
 }
 
 /* رفع الصور */
 function cleanFileName(name){return name.replace(/[^a-zA-Z0-9._-]/g,"_")}
 async function uploadFile(bucket,file){
- const path=Date.now()+"_"+Math.random().toString(36).slice(2)+"_"+cleanFileName(file.name);
- const {error}=await db.storage.from(bucket).upload(path,file,{upsert:false,contentType:file.type});
- if(error)throw error;
- return db.storage.from(bucket).getPublicUrl(path).data.publicUrl;
+const path=Date.now()+"_"+Math.random().toString(36).slice(2)+"_"+cleanFileName(file.name);
+const {error}=await db.storage.from(bucket).upload(path,file,{upsert:false,contentType:file.type});
+if(error)throw error;
+return db.storage.from(bucket).getPublicUrl(path).data.publicUrl;
 }
 
 /* لوحة الإدارة */
 function openAdmin(){
- if(!admin){alert("ما عندج صلاحية الإدارة.");return;}
- hideMainSections();hide("details");hide("reader");show("admin");
- renderAdminList();scrollToSection("admin");
+if(!admin){alert("ما عندج صلاحية الإدارة.");return}
+hideMainSections();
+hide("details");
+hide("reader");
+show("admin");
+renderAdminCategories();
+renderAdminList();
+scrollToSection("admin");
 }
 function closeAdmin(){hide("admin");home()}
 function resetMangaForm(){
- $("editMangaId").value="";
- ["mTitle","mDescription","customCategory"].forEach(id=>$(id).value="");
- $("mCategory").value="";$("mCover").value="";
- text("mangaFormTitle","إضافة مانهوا");
+$("editMangaId").value="";
+["mTitle","mDescription","customCategory"].forEach(id=>$(id).value="");
+$("mCover").value="";
+renderAdminCategories();
+text("mangaFormTitle","إضافة مانهوا");
 }
 function resetChapterForm(){
- $("editChapterId").value="";$("chapterTitle").value="";$("chapterFiles").value="";
- text("chapterFormTitle","إضافة فصل جديد");
+$("editChapterId").value="";
+$("chapterTitle").value="";
+$("chapterFiles").value="";
+text("chapterFormTitle","إضافة فصل جديد");
 }
+
+/* حفظ عدة تصنيفات داخل عمود category الحالي */
 async function saveManga(){
- if(!admin){alert("غير مسموح.");return;}
- const id=$("editMangaId").value;
- const title=$("mTitle").value.trim();
- const category=$("customCategory").value.trim()||$("mCategory").value.trim();
- const description=$("mDescription").value.trim();
- const file=$("mCover").files[0];
- if(!title){msg("mangaMessage","اكتبي اسم المانهوا.",true);return;}
- if(!category){msg("mangaMessage","اختاري تصنيفاً أو اكتبي تصنيفاً جديداً.",true);return;}
- try{
-  const record={title,category,description};
-  if(file)record.cover_url=await uploadFile(COVER_BUCKET,file);
-  if(id){
-   const {error}=await db.from("manhwa").update(record).eq("id",id);
-   if(error)throw error;
-  }else{
-   if(!file)throw new Error("اختاري غلاف المانهوا.");
-   const {error}=await db.from("manhwa").insert(record);
-   if(error)throw error;
-  }
-  msg("mangaMessage",id?"تم تعديل المانهوا.":"تم نشر المانهوا.");
-  resetMangaForm();await loadAll();
- }catch(e){msg("mangaMessage",e.message,true)}
+if(!admin){alert("غير مسموح.");return}
+const id=$("editMangaId").value;
+const title=$("mTitle").value.trim();
+const chosen=selectedAdminCategories();
+const custom=$("customCategory").value.split(/[،,]/).map(x=>x.trim()).filter(Boolean);
+const categories=uniqueCategories([...chosen,...custom]);
+const category=categories.join("، ");
+const description=$("mDescription").value.trim();
+const file=$("mCover").files[0];
+
+if(!title){msg("mangaMessage","اكتبي اسم المانهوا.",true);return}
+if(!category){msg("mangaMessage","اختاري تصنيفاً واحداً على الأقل.",true);return}
+
+try{
+const record={title,category,description};
+if(file)record.cover_url=await uploadFile(COVER_BUCKET,file);
+
+if(id){
+const {error}=await db.from("manhwa").update(record).eq("id",id);
+if(error)throw error;
+}else{
+if(!file)throw new Error("اختاري غلاف المانهوا.");
+const {error}=await db.from("manhwa").insert(record);
+if(error)throw error;
 }
+
+msg("mangaMessage",id?"تم تعديل المانهوا.":"تم نشر المانهوا.");
+resetMangaForm();
+await loadAll();
+}catch(e){
+msg("mangaMessage",e.message,true);
+}
+}
+
 async function saveChapter(){
- if(!admin){alert("غير مسموح.");return;}
- const id=$("editChapterId").value;
- const mangaId=$("chapterManga").value;
- const title=$("chapterTitle").value.trim();
- const files=Array.from($("chapterFiles").files);
- if(!mangaId||!title){msg("chapterMessage","اختاري المانهوا واكتبي اسم الفصل.",true);return;}
- try{
-  let pages;
-  if(files.length){
-   pages=[];
-   for(let i=0;i<files.length;i++){
-    msg("chapterMessage",`جاري رفع الصفحة ${i+1} من ${files.length}...`);
-    pages.push(await uploadFile(PAGES_BUCKET,files[i]));
-   }
-  }
-  const record={manhwa_id:Number(mangaId),title};
-  if(pages)record.pages=pages;
-  if(id){
-   const {error}=await db.from("chapters").update(record).eq("id",id);
-   if(error)throw error;
-  }else{
-   if(!pages?.length)throw new Error("اختاري صور صفحات الفصل.");
-   record.pages=pages;
-   const {error}=await db.from("chapters").insert(record);
-   if(error)throw error;
-  }
-  msg("chapterMessage",id?"تم تعديل الفصل.":"تم نشر الفصل وراح يظهر بقسم آخر التحديثات.");
-  resetChapterForm();await loadAll();
- }catch(e){msg("chapterMessage",e.message,true)}
+if(!admin){alert("غير مسموح.");return}
+const id=$("editChapterId").value;
+const mangaId=$("chapterManga").value;
+const title=$("chapterTitle").value.trim();
+const files=Array.from($("chapterFiles").files);
+
+if(!mangaId||!title){
+msg("chapterMessage","اختاري المانهوا واكتبي اسم الفصل.",true);
+return;
 }
+
+try{
+let pages;
+if(files.length){
+pages=[];
+for(let i=0;i<files.length;i++){
+msg("chapterMessage",`جاري رفع الصفحة ${i+1} من ${files.length}...`);
+pages.push(await uploadFile(PAGES_BUCKET,files[i]));
+}
+}
+
+const record={manhwa_id:Number(mangaId),title};
+if(pages)record.pages=pages;
+
+if(id){
+const {error}=await db.from("chapters").update(record).eq("id",id);
+if(error)throw error;
+}else{
+if(!pages?.length)throw new Error("اختاري صور صفحات الفصل.");
+record.pages=pages;
+const {error}=await db.from("chapters").insert(record);
+if(error)throw error;
+}
+
+msg("chapterMessage",id?"تم تعديل الفصل.":"تم نشر الفصل وراح يظهر بقسم آخر التحديثات.");
+resetChapterForm();
+await loadAll();
+}catch(e){
+msg("chapterMessage",e.message,true);
+}
+}
+
 function editManga(id){
- if(!admin)return;
- const m=mangas.find(x=>Number(x.id)===Number(id));if(!m)return;
- $("editMangaId").value=m.id;
- $("mTitle").value=m.title||"";
- $("customCategory").value="";
- const category=m.category||"";
- if([...$("mCategory").options].some(o=>o.value===category)){
-  $("mCategory").value=category;
- }else{
-  $("mCategory").value="";
-  $("customCategory").value=category;
- }
- $("mDescription").value=m.description||"";
- text("mangaFormTitle","تعديل المانهوا");
- scrollToSection("admin");
+if(!admin)return;
+const m=mangas.find(x=>Number(x.id)===Number(id));
+if(!m)return;
+$("editMangaId").value=m.id;
+$("mTitle").value=m.title||"";
+const cats=getMangaCategories(m.category);
+const known=cats.filter(c=>DEFAULT_CATEGORIES.includes(c));
+const custom=cats.filter(c=>!DEFAULT_CATEGORIES.includes(c));
+renderAdminCategories(known);
+$("customCategory").value=custom.join("، ");
+$("mDescription").value=m.description||"";
+text("mangaFormTitle","تعديل المانهوا");
+scrollToSection("admin");
 }
 function editChapter(id){
- if(!admin)return;
- const c=chapters.find(x=>Number(x.id)===Number(id));if(!c)return;
- $("editChapterId").value=c.id;
- $("chapterManga").value=c.manhwa_id;
- $("chapterTitle").value=c.title||"";
- text("chapterFormTitle","تعديل الفصل");
- scrollToSection("admin");
+if(!admin)return;
+const c=chapters.find(x=>Number(x.id)===Number(id));
+if(!c)return;
+$("editChapterId").value=c.id;
+$("chapterManga").value=c.manhwa_id;
+$("chapterTitle").value=c.title||"";
+text("chapterFormTitle","تعديل الفصل");
+scrollToSection("admin");
 }
 
-/* حذف المانهوا - تم إصلاح التحقق من نتيجة الحذف */
+/* حذف المانهوا والفصول */
 async function deleteManga(id){
- if(!admin || !confirm("متأكدة تريدين حذف المانهوا وكل فصولها؟"))return;
+if(!admin||!confirm("متأكدة تريدين حذف المانهوا وكل فصولها؟"))return;
+try{
+let {data,error}=await db.from("manhwa").delete().eq("id",id).select("id");
 
- try{
-  let {data,error}=await db
-   .from("manhwa")
-   .delete()
-   .eq("id",id)
-   .select("id");
+if(error&&error.code==="23503"){
+const {error:chapterError}=await db.from("chapters").delete().eq("manhwa_id",id);
+if(chapterError)throw chapterError;
+({data,error}=await db.from("manhwa").delete().eq("id",id).select("id"));
+}
 
-  if(error && error.code==="23503"){
-   const {error:chapterError}=await db
-    .from("chapters")
-    .delete()
-    .eq("manhwa_id",id);
+if(error)throw error;
+if(!data||data.length===0){
+throw new Error("قاعدة البيانات لم تسمح بالحذف. تحققي من صلاحيات الحذف RLS.");
+}
 
-   if(chapterError)throw chapterError;
-
-   ({data,error}=await db
-    .from("manhwa")
-    .delete()
-    .eq("id",id)
-    .select("id"));
-  }
-
-  if(error)throw error;
-
-  if(!data || data.length===0){
-   throw new Error("قاعدة البيانات لم تسمح بالحذف. تحققي من صلاحيات الحذف RLS.");
-  }
-
-  await loadAll();
-  alert("تم حذف المانهوا بنجاح.");
-
- }catch(e){
-  alert("تعذّر الحذف: "+e.message);
- }
+await loadAll();
+alert("تم حذف المانهوا بنجاح.");
+}catch(e){
+alert("تعذّر الحذف: "+e.message);
+}
 }
 
 async function deleteChapter(id){
- if(!admin||!confirm("متأكدة تريدين حذف الفصل؟"))return;
- const {error}=await db.from("chapters").delete().eq("id",id);
- if(error){alert("تعذّر الحذف: "+error.message);return;}
- await loadAll();
+if(!admin||!confirm("متأكدة تريدين حذف الفصل؟"))return;
+const {error}=await db.from("chapters").delete().eq("id",id);
+if(error){alert("تعذّر الحذف: "+error.message);return}
+await loadAll();
 }
+
 function renderAdminList(){
- if(!admin)return;
- $("adminMangaList").innerHTML=mangas.map(m=>{
-  const cs=chapters.filter(c=>Number(c.manhwa_id)===Number(m.id));
-  return `<div class="panel" style="margin:12px 0">
-   <strong>${safe(m.title)}</strong>
-   <div class="toolbar" style="margin-top:8px">
-    <button class="secondary" onclick="editManga(${Number(m.id)})">تعديل المانهوا</button>
-    <button class="danger" onclick="deleteManga(${Number(m.id)})">حذف المانهوا</button>
-   </div>
-   ${cs.map(c=>`<div class="chapter-row">
-    <span>${safe(c.title)}</span><div class="toolbar">
-    <button class="secondary" onclick="editChapter(${Number(c.id)})">تعديل</button>
-    <button class="danger" onclick="deleteChapter(${Number(c.id)})">حذف</button>
-    </div></div>`).join("")}
-  </div>`;
- }).join("")||'<div class="empty">ماكو مانهوا بعد.</div>';
+if(!admin)return;
+$("adminMangaList").innerHTML=mangas.map(m=>{
+const cs=chapters.filter(c=>Number(c.manhwa_id)===Number(m.id));
+return `<div class="panel" style="margin:12px 0">
+<strong>${safe(m.title)}</strong>
+<p class="small">${safe(getMangaCategories(m.category).join("، "))}</p>
+<div class="toolbar" style="margin-top:8px">
+<button class="secondary" onclick="editManga(${Number(m.id)})">تعديل المانهوا</button>
+<button class="danger" onclick="deleteManga(${Number(m.id)})">حذف المانهوا</button>
+</div>
+${cs.map(c=>`<div class="chapter-row">
+<span>${safe(c.title)}</span>
+<div class="toolbar">
+<button class="secondary" onclick="editChapter(${Number(c.id)})">تعديل</button>
+<button class="danger" onclick="deleteChapter(${Number(c.id)})">حذف</button>
+</div></div>`).join("")}
+</div>`;
+}).join("")||'<div class="empty">ماكو مانهوا بعد.</div>';
 }
+
 async function start(){
- await refreshUser();
- await loadAll();
+renderAdminCategories();
+await refreshUser();
+await loadAll();
 }
 start();
 </script>
