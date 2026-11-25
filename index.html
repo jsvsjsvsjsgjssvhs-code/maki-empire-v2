@@ -161,6 +161,11 @@ main{max-width:1200px;margin:auto;padding:0 20px 50px}
  display:block;margin:10px auto 0;
  filter:drop-shadow(0 0 18px #b0003a44);
 }
+.desktop-mascot{
+ display:none;width:100%;max-width:340px;height:310px;
+ object-fit:contain;margin:12px auto 0;
+ filter:drop-shadow(0 0 22px #b0003a66);
+}
 
 /* بطاقات المانهوا */
 .manga-grid{
@@ -341,6 +346,7 @@ footer.custom-footer{
  .filter{min-width:16.6%;font-size:10px;padding:13px 7px}
  .reading-corner{padding:12px 5px 18px}
  .mascot{width:190px;height:205px}
+ .desktop-mascot{display:none!important}
  .manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .cover{height:190px}
  .card-info{padding:9px}
@@ -351,6 +357,10 @@ footer.custom-footer{
  .admin-row{align-items:flex-start;flex-direction:column}
  .chapter-item{font-size:10px}
  .image-slots{grid-template-columns:1fr}
+}
+@media(min-width:701px){
+ .mascot{display:none}
+ .desktop-mascot{display:block}
 }
 </style>
 </head>
@@ -412,6 +422,7 @@ footer.custom-footer{
   <h2>♡ ركن القراءة</h2>
   <p>خذي استراحة صغيرة بين الحكايات، واتركي خيالج يحلّق</p>
   <img class="mascot" id="makiMascot" src="maki-mascot.png" alt="شخصية ماكي" onerror="this.style.display='none'">
+  <img class="desktop-mascot" id="makiDesktopMascot" src="maki-desktop-mascot.png" alt="شخصية ماكي لسطح المكتب" onerror="this.style.display='none'">
  </section>
 
  <section class="section" id="updates">
@@ -528,8 +539,18 @@ footer.custom-footer{
       </div>
       <div class="image-status" id="status-mascot"></div>
      </div>
+     <div class="image-slot" data-image-slot="desktopMascot">
+      <h4>3 ـ شخصية ماكي لسطح المكتب</h4>
+      <div class="image-preview" id="preview-desktopMascot">الصورة الافتراضية أو الصورة المختارة</div>
+      <input class="field" id="file-desktopMascot" type="file" accept="image/*">
+      <div class="image-slot-actions">
+       <button class="main-btn" data-install-image="desktopMascot">تركيب الصورة</button>
+       <button class="soft-btn" data-reset-image="desktopMascot">إرجاع الافتراضي</button>
+      </div>
+      <div class="image-status" id="status-desktopMascot"></div>
+     </div>
      <div class="image-slot" data-image-slot="background">
-      <h4>3 ـ خلفية الموقع العامة</h4>
+      <h4>4 ـ خلفية الموقع العامة</h4>
       <div class="image-preview" id="preview-background">الصورة الافتراضية أو الصورة المختارة</div>
       <input class="field" id="file-background" type="file" accept="image/*">
       <div class="image-slot-actions">
@@ -539,7 +560,7 @@ footer.custom-footer{
       <div class="image-status" id="status-background"></div>
      </div>
      <div class="image-slot" data-image-slot="footer">
-      <h4>4 ـ الصورة الزخرفية أسفل الموقع</h4>
+      <h4>5 ـ الصورة الزخرفية أسفل الموقع</h4>
       <div class="image-preview" id="preview-footer">الصورة الافتراضية أو الصورة المختارة</div>
       <input class="field" id="file-footer" type="file" accept="image/*">
       <div class="image-slot-actions">
@@ -1126,19 +1147,19 @@ async function loadHistory(){
  :'<div class="empty">سجل القراءة فارغ حالياً.</div>';
 }
 
-async function createFollowNotifications(manhwaId,chapterTitle){
+async function createFollowNotifications(manhaId,chapterTitle){
  const {data,error}=await db.from('follows')
-  .select('user_id').eq('manhwa_id',manhwaId);
+  .select('user_id').eq('manhwa_id',manhaId);
 
  if(error||!data?.length)return;
 
- const name=manga.find(m=>String(m.id)===String(manhwaId))?.title||'مانهوا';
+ const name=manga.find(m=>String(m.id)===String(manhaId))?.title||'مانهوا';
 
  const rows=data
   .filter(x=>x.user_id!==currentUser.id)
   .map(x=>({
    user_id:x.user_id,
-   manhwa_id:manhwaId,
+   manhwa_id:manhaId,
    message:`تمت إضافة ${chapterTitle} من ${name}`,
    is_read:false
   }));
@@ -1185,6 +1206,7 @@ const IMAGE_SETTINGS_KEY='makiEmpireImageSettings';
 const imageDefaults={
  hero:'maki-hero.png',
  mascot:'maki-mascot.png',
+ desktopMascot:'maki-desktop-mascot.png',
  background:'',
  footer:''
 };
@@ -1201,6 +1223,7 @@ function readImageSettings(){
 function applyImageSettings(){
  const hero=$('home')?.querySelector('.hero-frame');
  const mascot=$('makiMascot');
+ const desktopMascot=$('makiDesktopMascot');
  const footer=$('siteFooter');
 
  if(imageSettings.hero&&hero){
@@ -1219,6 +1242,16 @@ function applyImageSettings(){
   }else{
    mascot.src=imageDefaults.mascot;
    mascot.style.display='';
+  }
+ }
+
+ if(desktopMascot){
+  if(imageSettings.desktopMascot){
+   desktopMascot.src=imageSettings.desktopMascot;
+   desktopMascot.style.display='block';
+  }else{
+   desktopMascot.src=imageDefaults.desktopMascot;
+   desktopMascot.style.display='';
   }
  }
 
@@ -1250,7 +1283,7 @@ function applyImageSettings(){
 }
 
 function updateImagePreviews(){
- ['hero','mascot','background','footer'].forEach(key=>{
+ ['hero','mascot','desktopMascot','background','footer'].forEach(key=>{
   const preview=$('preview-'+key);
   if(!preview)return;
   const url=imageSettings[key]||imageDefaults[key];
@@ -1310,7 +1343,7 @@ document.querySelectorAll('[data-install-image]').forEach(button=>{
 document.querySelectorAll('[data-reset-image]').forEach(button=>{
  button.addEventListener('click',()=>resetSiteImage(button.dataset.resetImage));
 });
-['hero','mascot','background','footer'].forEach(key=>{
+['hero','mascot','desktopMascot','background','footer'].forEach(key=>{
  $('file-'+key).addEventListener('change',()=>{
   const file=$('file-'+key).files[0];
   if(!file)return;
@@ -1405,4 +1438,4 @@ async function start(){
 start();
 </script>
 </body>
-      </html>
+</html>
