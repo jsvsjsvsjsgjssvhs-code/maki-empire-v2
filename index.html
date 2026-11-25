@@ -18,6 +18,7 @@
  --line:#492033;
  --white:#f8eaf0;
  --muted:#a994a0;
+ --gold:#d9ad68;
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{
@@ -285,6 +286,157 @@ footer{
 }
 footer .logo{font-size:18px}
 
+/* ===== إضافات تصميم ماكي الإمبراطورية ===== */
+
+/* أجواء القمر الأحمر والقلعة */
+body:before{
+ content:"";
+ position:fixed;
+ width:180px;height:180px;
+ border-radius:50%;
+ top:110px;left:-65px;
+ pointer-events:none;
+ z-index:-1;
+ background:radial-gradient(circle,#f04b6b 0%,#a20c38 45%,#5a0928 70%,transparent 72%);
+ box-shadow:0 0 55px #c0004544;
+ opacity:.2;
+}
+body:after{
+ content:"";
+ position:fixed;inset:0;
+ pointer-events:none;z-index:40;
+ opacity:.12;
+ background:
+ radial-gradient(ellipse at 12% 90%,#8c183b 0%,transparent 22%),
+ radial-gradient(ellipse at 88% 8%,#8c183b 0%,transparent 20%);
+}
+
+/* تحسين الواجهة الرئيسية */
+.hero-frame{
+ isolation:isolate;
+ box-shadow:0 12px 40px #0009,0 0 25px #79002c22;
+}
+.hero-frame:before{
+ content:"";
+ position:absolute;
+ width:120px;height:120px;
+ left:9%;top:12%;
+ border-radius:50%;
+ background:radial-gradient(circle,#ff8c9f 0%,#d21a4b 45%,#700b2d 75%);
+ box-shadow:0 0 45px #ed245d88;
+ opacity:.65;
+ z-index:0;
+}
+.hero-frame:after{
+ background:
+ linear-gradient(90deg,rgba(8,5,10,.1) 0%,rgba(8,5,10,.18) 35%,rgba(8,5,10,.9) 100%),
+ linear-gradient(0deg,rgba(8,5,10,.8),transparent 65%);
+}
+.hero-content{
+ text-shadow:0 2px 12px #000;
+}
+.hero-mini{
+ color:var(--gold);
+}
+
+/* لمسة ذهبية فخمة */
+.logo{
+ text-shadow:0 0 15px #b0003a,0 0 25px #6e1536;
+}
+.section-title h2:after{
+ background:linear-gradient(to bottom,var(--gold),var(--bright));
+}
+.category-heading{
+ background:linear-gradient(110deg,#1b0d18,#2b0d20,#160a14);
+ border-bottom:1px solid #6b3044;
+}
+.category-heading span:first-child{
+ color:var(--gold);
+}
+.manga-card{
+ box-shadow:0 5px 20px #0004;
+}
+.manga-card:hover{
+ border-color:var(--gold);
+ box-shadow:0 8px 25px #a4003b33;
+}
+.badge{
+ background:linear-gradient(120deg,#461027,#260d1b);
+}
+.main-btn{
+ background:linear-gradient(135deg,#c50043,#72001f 70%,#4c0b24);
+}
+.feature-box{
+ box-shadow:0 8px 25px #0004;
+}
+.about-box{
+ border-color:#704052;
+ background:
+ radial-gradient(ellipse at top left,#3a1025 0%,transparent 50%),
+ linear-gradient(135deg,#1b0d18,#0e090f);
+}
+
+/* شخصية ماكي الصغيرة */
+.floating-maki{
+ position:fixed;
+ z-index:25;
+ left:14px;
+ bottom:14px;
+ width:100px;
+ height:115px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ pointer-events:none;
+ animation:makiFloat 4s ease-in-out infinite;
+}
+.floating-maki img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ filter:drop-shadow(0 0 12px #e51b58aa);
+}
+@keyframes makiFloat{
+ 0%,100%{transform:translateY(0) rotate(-2deg)}
+ 50%{transform:translateY(-9px) rotate(2deg)}
+}
+
+/* حركة ظهور البطاقات */
+.manga-card{
+ animation:cardAppear .45s ease both;
+}
+@keyframes cardAppear{
+ from{opacity:0;transform:translateY(10px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+/* تحسين عرض صور الفصول */
+.reader{
+ box-shadow:0 10px 35px #0008;
+}
+.reader img{
+ border-radius:5px;
+ box-shadow:0 0 20px #0009;
+}
+
+/* تحسين حقول الإدارة */
+.field,.search-box input{
+ transition:border-color .2s,box-shadow .2s;
+}
+.field:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 10px #b0003a33;
+}
+
+/* شريط التمرير */
+::-webkit-scrollbar{width:8px;height:6px}
+::-webkit-scrollbar-track{background:#0d080e}
+::-webkit-scrollbar-thumb{
+ background:linear-gradient(#a51a48,#4b102a);
+ border-radius:20px;
+}
+::-webkit-scrollbar-thumb:hover{background:#d32c60}
+
 /* الهاتف */
 @media(max-width:700px){
  .topbar{justify-content:center;padding:10px 12px}
@@ -312,6 +464,44 @@ footer .logo{font-size:18px}
  .admin-grid{grid-template-columns:1fr}
  .admin-row{align-items:flex-start;flex-direction:column}
  .chapter-item{font-size:10px}
+
+ /* ترتيب الموبايل */
+ .hero-frame{
+  min-height:300px;
+  border-radius:12px;
+  background-position:35% center;
+ }
+ .hero-frame:before{
+  width:90px;height:90px;
+  left:5%;top:8%;
+ }
+ .hero-content{
+  right:5%;bottom:17px;
+  max-width:82%;
+ }
+ .hero h1{font-size:24px}
+ .hero p{max-width:260px}
+ .floating-maki{
+  width:72px;height:85px;
+  left:5px;bottom:7px;
+ }
+ .manga-grid{gap:9px}
+ .cover{height:180px}
+ .card-info h3{line-height:1.7}
+ .card-actions{gap:4px}
+ .card-actions button{padding:6px 7px}
+ .category-heading{font-size:15px}
+ .reading-corner h2{font-size:16px}
+ body:before{
+  width:120px;height:120px;
+  top:100px;left:-55px;
+ }
+}
+@media(max-width:360px){
+ .cover{height:155px}
+ .hero h1{font-size:21px}
+ nav a,.nav-button{font-size:9px;padding:6px 7px}
+ .floating-maki{width:60px;height:72px}
 }
 </style>
 </head>
@@ -484,6 +674,11 @@ footer .logo{font-size:18px}
  </section>
 
 </main>
+
+<!-- شخصية ماكي الصغيرة المتحركة -->
+<div class="floating-maki" aria-hidden="true">
+ <img src="maki-mascot.png" alt="" onerror="this.parentElement.style.display='none'">
+</div>
 
 <footer>
  <div class="logo">♛ ماكي <span>الإمبراطورية</span></div>
@@ -1169,4 +1364,4 @@ async function start(){
 start();
 </script>
 </body>
-  </html>
+</html>
