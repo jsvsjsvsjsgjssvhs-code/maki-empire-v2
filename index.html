@@ -157,14 +157,59 @@ main{max-width:1200px;margin:auto;padding:0 20px 50px}
 .reading-corner h2{font-size:18px;margin:0 0 8px}
 .reading-corner p{font-size:10px;color:#bba8b2}
 .mascot{
- width:210px;height:230px;object-fit:contain;
+ width:220px;height:250px;object-fit:contain;
  display:block;margin:10px auto 0;
  filter:drop-shadow(0 0 18px #b0003a44);
 }
 .desktop-mascot{
- display:none;width:100%;max-width:340px;height:310px;
+ display:none;width:100%;max-width:460px;height:420px;
  object-fit:contain;margin:12px auto 0;
  filter:drop-shadow(0 0 22px #b0003a66);
+}
+
+/* ماكي العائمة - سطح المكتب فقط */
+#floatingMaki{
+ position:fixed;
+ left:18px;
+ bottom:12px;
+ z-index:25;
+ width:165px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ pointer-events:none;
+}
+#floatingMakiImage{
+ width:155px;
+ height:190px;
+ object-fit:contain;
+ display:block;
+ filter:drop-shadow(0 0 15px #b0003a66);
+}
+.maki-bubble{
+ position:relative;
+ background:linear-gradient(135deg,#260d1c,#100811);
+ border:1px solid #ef1b58;
+ color:#ffe6ef;
+ border-radius:14px;
+ padding:8px 13px;
+ font-size:12px;
+ font-weight:800;
+ white-space:nowrap;
+ box-shadow:0 0 15px #b0003a55;
+ margin-bottom:4px;
+}
+.maki-bubble:after{
+ content:"";
+ position:absolute;
+ bottom:-8px;
+ left:50%;
+ transform:translateX(-50%) rotate(45deg);
+ width:13px;
+ height:13px;
+ background:#1b0c17;
+ border-right:1px solid #ef1b58;
+ border-bottom:1px solid #ef1b58;
 }
 
 /* بطاقات المانهوا */
@@ -345,8 +390,9 @@ footer.custom-footer{
  .filters{justify-content:flex-start}
  .filter{min-width:16.6%;font-size:10px;padding:13px 7px}
  .reading-corner{padding:12px 5px 18px}
- .mascot{width:190px;height:205px}
+ .mascot{width:220px;height:250px}
  .desktop-mascot{display:none!important}
+ #floatingMaki{display:none!important}
  .manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .cover{height:190px}
  .card-info{padding:9px}
@@ -529,6 +575,7 @@ footer.custom-footer{
       </div>
       <div class="image-status" id="status-hero"></div>
      </div>
+
      <div class="image-slot" data-image-slot="mascot">
       <h4>2 ـ شخصية ماكي في ركن القراءة</h4>
       <div class="image-preview" id="preview-mascot">الصورة الافتراضية أو الصورة المختارة</div>
@@ -539,6 +586,7 @@ footer.custom-footer{
       </div>
       <div class="image-status" id="status-mascot"></div>
      </div>
+
      <div class="image-slot" data-image-slot="desktopMascot">
       <h4>3 ـ شخصية ماكي لسطح المكتب</h4>
       <div class="image-preview" id="preview-desktopMascot">الصورة الافتراضية أو الصورة المختارة</div>
@@ -549,8 +597,20 @@ footer.custom-footer{
       </div>
       <div class="image-status" id="status-desktopMascot"></div>
      </div>
+
+     <div class="image-slot" data-image-slot="floatingMascot">
+      <h4>4 ـ ماكي العائمة بجانب الشاشة</h4>
+      <div class="image-preview" id="preview-floatingMascot">الصورة الافتراضية أو الصورة المختارة</div>
+      <input class="field" id="file-floatingMascot" type="file" accept="image/*">
+      <div class="image-slot-actions">
+       <button class="main-btn" data-install-image="floatingMascot">تركيب الصورة</button>
+       <button class="soft-btn" data-reset-image="floatingMascot">إرجاع الافتراضي</button>
+      </div>
+      <div class="image-status" id="status-floatingMascot"></div>
+     </div>
+
      <div class="image-slot" data-image-slot="background">
-      <h4>4 ـ خلفية الموقع العامة</h4>
+      <h4>5 ـ خلفية الموقع العامة</h4>
       <div class="image-preview" id="preview-background">الصورة الافتراضية أو الصورة المختارة</div>
       <input class="field" id="file-background" type="file" accept="image/*">
       <div class="image-slot-actions">
@@ -559,8 +619,9 @@ footer.custom-footer{
       </div>
       <div class="image-status" id="status-background"></div>
      </div>
+
      <div class="image-slot" data-image-slot="footer">
-      <h4>5 ـ الصورة الزخرفية أسفل الموقع</h4>
+      <h4>6 ـ الصورة الزخرفية أسفل الموقع</h4>
       <div class="image-preview" id="preview-footer">الصورة الافتراضية أو الصورة المختارة</div>
       <input class="field" id="file-footer" type="file" accept="image/*">
       <div class="image-slot-actions">
@@ -594,6 +655,12 @@ footer.custom-footer{
  </section>
 
 </main>
+
+<!-- ماكي العائمة المستقلة لسطح المكتب -->
+<div id="floatingMaki">
+ <div class="maki-bubble">تعالي نقرأ سوا ♡</div>
+ <img id="floatingMakiImage" src="maki-floating.png" alt="ماكي العائمة" onerror="this.style.display='none'">
+</div>
 
 <footer id="siteFooter">
  <div class="logo">♛ ماكي <span>الإمبراطورية</span></div>
@@ -1207,6 +1274,7 @@ const imageDefaults={
  hero:'maki-hero.png',
  mascot:'maki-mascot.png',
  desktopMascot:'maki-desktop-mascot.png',
+ floatingMascot:'maki-floating.png',
  background:'',
  footer:''
 };
@@ -1224,6 +1292,7 @@ function applyImageSettings(){
  const hero=$('home')?.querySelector('.hero-frame');
  const mascot=$('makiMascot');
  const desktopMascot=$('makiDesktopMascot');
+ const floatingMascot=$('floatingMakiImage');
  const footer=$('siteFooter');
 
  if(imageSettings.hero&&hero){
@@ -1255,6 +1324,11 @@ function applyImageSettings(){
   }
  }
 
+ if(floatingMascot){
+  floatingMascot.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;
+  floatingMascot.style.display='';
+ }
+
  if(imageSettings.background){
   document.body.style.backgroundImage=`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`;
   document.body.style.backgroundAttachment='fixed';
@@ -1283,7 +1357,7 @@ function applyImageSettings(){
 }
 
 function updateImagePreviews(){
- ['hero','mascot','desktopMascot','background','footer'].forEach(key=>{
+ ['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(key=>{
   const preview=$('preview-'+key);
   if(!preview)return;
   const url=imageSettings[key]||imageDefaults[key];
@@ -1343,7 +1417,7 @@ document.querySelectorAll('[data-install-image]').forEach(button=>{
 document.querySelectorAll('[data-reset-image]').forEach(button=>{
  button.addEventListener('click',()=>resetSiteImage(button.dataset.resetImage));
 });
-['hero','mascot','desktopMascot','background','footer'].forEach(key=>{
+['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(key=>{
  $('file-'+key).addEventListener('change',()=>{
   const file=$('file-'+key).files[0];
   if(!file)return;
@@ -1438,4 +1512,4 @@ async function start(){
 start();
 </script>
 </body>
-</html>
+ </html>
