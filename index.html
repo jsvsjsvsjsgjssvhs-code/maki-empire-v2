@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -25,7 +26,7 @@ body{
  radial-gradient(ellipse at 50% 35%,#260b1b 0%,transparent 48%),
  radial-gradient(ellipse at 50% 100%,#200817 0%,transparent 50%),
  var(--bg);
- color:var(--white);font-family:Cairo,sans-serif;
+ color:var(--white);font-family:'Cairo',sans-serif;min-height:100vh;
 }
 button,input,select,textarea{font-family:inherit;cursor:pointer}
 a{text-decoration:none;color:inherit}
@@ -252,12 +253,10 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
  margin:0!important;padding:0!important;border:none!important;
 }
 
-.about-box,.panel{
+.panel{
  background:linear-gradient(135deg,#1b0d18,#0e090f);
- border:1px solid #512338;border-radius:12px;padding:20px;
- line-height:2;
+ border:1px solid #512338;border-radius:12px;padding:20px;margin-top:15px;line-height:2;
 }
-.panel{margin-top:15px}
 .panel h3{color:var(--pink);font-size:15px}
 .panel[hidden]{display:none!important}
 .admin-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;border-bottom:1px solid #492033;padding-bottom:12px}
@@ -288,7 +287,6 @@ background:#150b14;border:1px dashed #ef1b58;border-radius:10px;padding:12px;mar
 }
 .tiny{font-size:10px;color:#bda7b2;display:block}
 .status{font-size:12px;color:#ff9ab6;min-height:22px}
-hr{border:0;border-top:1px solid #492033;margin:22px 0}
 .image-manager{margin-top:12px}
 .image-manager-intro{font-size:12px;color:var(--muted);margin-bottom:14px}
 .image-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
@@ -542,8 +540,10 @@ MAKI EMPIRE
 
 
 
+
 تسجيل الدخول
 إنشاء حساب
+
 
 تحديث البيانات
 تسجيل الخروج
@@ -551,7 +551,7 @@ MAKI EMPIRE
 'use strict';
 const SUPABASE_URL='supabase.co';
 const SUPABASE_KEY='sb_publishable_Vf_1I5n_C01aJev3jzQMaQ_8cnsUxRK';
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const db=window.supabase ? window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY) : null;
 const BUCKET='manhwa-images';
 const $=id=>document.getElementById(id);
 const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({
@@ -563,8 +563,6 @@ let chapters=[];
 let filter='الكل';
 let editingManga=null;
 let editingChapter=null;
-let readerPages=[];
-let readerIndex=0;
 function isAdmin(){
 return !!currentUser;
 }
@@ -652,16 +650,18 @@ renderAdminLists();
 if(!currentUser){
 $('favoritesGrid').innerHTML='سجّلي الدخول لعرض مفضلتج.';
 $('historyList').innerHTML='سجّلي الدخول لعرض سجل القراءة.';
-$('notificationsList').innerHTML='';
+$('notificationsList').innerHTML='سجّلي الدخول لعرض الإشعارات.';
 }
 }
 async function loadUser(){
+if(!db)return;
 const {data,error}=await db.auth.getSession();
 if(error)console.error(error);
 currentUser=data.session?.user||null;
 updateAccountUI();
 }
 async function signUp(){
+if(!db)return status('accountStatus','تعذر الاتصال بالخادم، تحققي من الإنترنت.');
 const email=$('email').value.trim();
 const password=$('password').value;
 if(!email||password.length<8){
@@ -676,6 +676,7 @@ updateAccountUI();
 status('accountStatus',data.session?'تم إنشاء الحساب.':'تحققي من بريدج إذا كان تأكيد البريد مفعّلاً.');
 }
 async function signIn(){
+if(!db)return status('accountStatus','تعذر الاتصال بالخادم، تحققي من الإنترنت.');
 const email=$('email').value.trim();
 const password=$('password').value;
 status('accountStatus','جاري تسجيل الدخول...');
@@ -688,6 +689,7 @@ closeAccount();
 await refreshPersonal();
 }
 async function signOut(){
+if(!db)return;
 const {error}=await db.auth.signOut();
 if(error){status('accountStatus',error.message);return}
 currentUser=null;
@@ -716,12 +718,13 @@ try{pages=JSON.parse(pages);}catch{pages=[pages];}
 }
 return{
 id:row.id,
-mangaId:row.manhwa_id??row.manga_id??row.maongaId,
+mangaId:row.manhwa_id??row.manga_id??row.mangaId,
 title:row.title||'فصل',
 pages:Array.isArray(pages)?pages:[]
 };
 }
 async function loadManga(){
+if(!db){$('mangaGrid').innerHTML='تعذر الاتصال بالإنترنت.';return;}
 const {data,error}=await db.from('manhwa').select('*').order('id',{ascending:false});
 if(error){
 $('mangaGrid').innerHTML='تعذر تحميل المكتبة. تحققي من إعداد جدول manhwa.';
@@ -733,6 +736,7 @@ fillMangaSelect();
 renderAdminLists();
 }
 async function loadChapters(){
+if(!db){$('chapterList').innerHTML='تعذر الاتصال بالإنترنت.';return;}
 const {data,error}=await db.from('chapters').select('*').order('id',{ascending:false});
 if(error){
 $('chapterList').innerHTML='تعذر تحميل الفصول. تحققي من إعداد جدول chapters.';
@@ -953,10 +957,9 @@ $('management').hidden=true;
 $('reader').classList.add('show');
 const m=manga.find(x=>String(x.id)===String(ch.mangaId));
 $('readerTitle').textContent=${m?m.title+' - ':''}${ch.title};
-readerPages=ch.pages||[];
-readerIndex=0;
-$('readerImages').innerHTML=readerPages.length
-?readerPages.map((url,i)=><img src="${safe(url)}" alt="صفحة الفصل ${i+1}">).join('')
+const pages=ch.pages||[];
+$('readerImages').innerHTML=pages.length
+?pages.map((url,i)=><img src="${safe(url)}" alt="صفحة الفصل ${i+1}">).join('')
 :'هذا الفصل لا يحتوي صفحات.';
 const mChapters=chapters
 .filter(c=>String(c.mangaId)===String(ch.mangaId))
@@ -1022,9 +1025,9 @@ return;
 }
 const ids=(data||[]).map(x=>String(x.manhwa_id));
 const list=manga.filter(m=>ids.includes(String(m.id)));
-$('favoritesGrid').innerHTML=list
-.length
-?list.map(card).join('')
+$('favoritesGrid').innerHTML=list.length
+?list.map(card
+).join('')
 :'ما ضفتي مانهوا للمفضلة بعد.';
 }
 async function loadHistory(){
@@ -1212,8 +1215,10 @@ document.querySelectorAll('[data-reset-image]').forEach(button=>{
 button.addEventListener('click',()=>resetSiteImage(button.dataset.resetImage));
 });
 ['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(key=>{
-$('file-'+key).addEventListener('change',()=>{
-const file=$('file-'+key).files?.[0];
+const inp=$('file-'+key);
+if(inp){
+inp.addEventListener('change',()=>{
+const file=inp.files?.[0];
 if(!file)return;
 if(!file.type.startsWith('image/')){
 $('status-'+key).textContent='اختاري ملف صورة صالح.';
@@ -1223,6 +1228,7 @@ const temporaryURL=URL.createObjectURL(file);
 $('preview-'+key).innerHTML=<img src="${temporaryURL}" alt="معاينة الصورة المختارة">;
 $('status-'+key).textContent='الصورة جاهزة. اضغطي تركيب الصورة حتى تنرفع للموقع.';
 });
+}
 });
 document.addEventListener('click',async e=>{
 const b=e.target.closest('[data-action]');
@@ -1266,11 +1272,13 @@ $('searchInput').oninput=renderManga;
 $('accountModal').addEventListener('click',e=>{
 if(e.target===$('accountModal'))closeAccount();
 });
+if(db){
 db.auth.onAuthStateChange((_event,session)=>{
 currentUser=session?.user||null;
 updateAccountUI();
 if(currentUser)setTimeout(refreshPersonal,0);
 });
+}
 async function start(){
 readImageSettings();
 applyImageSettings();
@@ -1281,3 +1289,5 @@ await refreshPersonal();
 applyImageSettings();
 }
 start();
+
+
