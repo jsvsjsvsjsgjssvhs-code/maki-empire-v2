@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -31,7 +30,6 @@ body{
 button,input,select,textarea{font-family:inherit;cursor:pointer}
 a{text-decoration:none;color:inherit}
 
-/* الشريط العلوي */
 .topbar{
  position:sticky;top:0;z-index:40;
  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
@@ -53,7 +51,6 @@ nav a:hover,.nav-button:hover{border-color:var(--pink);color:white}
  box-shadow:0 0 12px #b0003a66;
 }
 
-/* البنر الرئيسي */
 .hero{padding:0 24px;margin:18px auto 26px;max-width:1200px}
 .hero-frame{
  position:relative;min-height:330px;border-radius:16px;overflow:hidden;
@@ -97,7 +94,6 @@ nav a:hover,.nav-button:hover{border-color:var(--pink);color:white}
 
 main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 
-/* البحث والتصنيفات */
 .search-bar{margin:16px 0}
 .search-bar input{
  width:100%;padding:13px 16px;border-radius:12px;
@@ -117,7 +113,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
  background:linear-gradient(135deg,#c50043,#72001f);color:white;border-color:#ff5b8d;
 }
 
-/* ركن القراءة */
 .reading-corner{
  text-align:center;padding:24px 16px 32px;margin:24px 0;
  background:linear-gradient(180deg,rgba(27,12,23,.55),rgba(18,11,18,.35));
@@ -146,7 +141,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 }
 .mascot.custom-mascot{object-fit:contain}
 
-/* ماكي العائمة */
 #floatingMaki{
  position:fixed;
  left:18px;
@@ -179,7 +173,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
  margin-bottom:4px;
 }
 
-/* الأقسام والكروت */
 .section{margin:28px 0 36px}
 .section-title{
  display:flex;justify-content:space-between;align-items:center;
@@ -223,7 +216,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 .card-actions{margin-top:auto;display:flex;gap:5px;flex-wrap:wrap}
 .card-actions button{flex:1;padding:6px 4px;font-size:10px}
 
-/* صفحة تفاصيل المانهوا وقائمة الفصول */
 .details-box{
  display:none;background:linear-gradient(135deg,#1b0d18,#0e090f);
  border:1px solid #59263d;border-radius:16px;padding:22px;margin:20px 0;
@@ -240,7 +232,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 }
 .ch-num-btn:hover{background:linear-gradient(135deg,#c50043,#72001f);border-color:#ff5b8d}
 
-/* القارئ المتصل */
 .reader{
  display:none;margin:20px 0;padding:18px;
  border:1px solid #512338;border-radius:12px;
@@ -261,7 +252,6 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
  margin:0!important;padding:0!important;border:none!important;
 }
 
-/* الإدارة */
 .about-box,.panel{
  background:linear-gradient(135deg,#1b0d18,#0e090f);
  border:1px solid #512338;border-radius:12px;padding:20px;
@@ -282,11 +272,11 @@ main{max-width:1200px;margin:0 auto;padding:0 24px 60px}
 .field{
  width:100%;padding:11px 13px;margin:6px 0;
  border:1px solid #512338;border-radius:8px;
-يُرجى استخدام الرمز البرمجي بحذر.
-background:#100a11;color:white;outline:none;font-size:12px;
+ background:#100a11;color:white;outline:none;font-size:12px;
 }
 .field:focus{border-color:var(--pink)}
 .field option{background:#170d16}
+يُرجى استخدام الرمز البرمجي بحذر.
 .admin-list{display:grid;gap:8px;margin-top:12px;max-height:340px;overflow-y:auto}
 .admin-row{
 display:flex;align-items:center;justify-content:space-between;
@@ -299,7 +289,6 @@ background:#150b14;border:1px dashed #ef1b58;border-radius:10px;padding:12px;mar
 .tiny{font-size:10px;color:#bda7b2;display:block}
 .status{font-size:12px;color:#ff9ab6;min-height:22px}
 hr{border:0;border-top:1px solid #492033;margin:22px 0}
-/* مركز الصور */
 .image-manager{margin-top:12px}
 .image-manager-intro{font-size:12px;color:var(--muted);margin-bottom:14px}
 .image-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
@@ -313,7 +302,6 @@ display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bo
 .image-slot-actions{display:flex;gap:6px;margin-top:6px}
 .image-slot-actions button{flex:1;padding:7px;font-size:11px}
 .image-status{font-size:11px;color:#ff9ab6;margin-top:6px}
-/* الفوتر */
 footer{
 text-align:center;padding:34px 20px;margin-top:40px;
 border-top:1px solid var(--line);background:#0c070d;
@@ -324,7 +312,6 @@ background-size:cover;background-position:center;
 }
 footer .logo{justify-content:center;margin-bottom:8px}
 footer p{margin:4px 0;font-size:12px;color:var(--muted)}
-/* النوافذ المنبثقة */
 .modal{
 display:none;position:fixed;inset:0;z-index:100;
 background:rgba(0,0,0,.8);align-items:center;justify-content:center;padding:16px;
@@ -339,7 +326,6 @@ position:absolute;left:14px;top:12px;background:none;border:none;color:var(--pin
 }
 .account-tools{display:flex;gap:8px;margin-top:10px}
 .empty{text-align:center;padding:24px;color:var(--muted);font-size:12px}
-/* الهاتف */
 @media(max-width:700px){
 .topbar{justify-content:center;padding:10px 12px}
 .logo{font-size:19px}
@@ -545,6 +531,7 @@ MAKI EMPIRE
 سجّلي الدخول لعرض سجل القراءة.
 🔔 إشعاراتج
 سجّلي الدخول لعرض الإشعارات.
+
 هلا! تعالي نقرأ سوه ♡ !
 
 ♛ ماكي الإمبراطورية
@@ -729,7 +716,7 @@ try{pages=JSON.parse(pages);}catch{pages=[pages];}
 }
 return{
 id:row.id,
-mangaId:row.manhwa_id??row.manga_id??row.mangaId,
+mangaId:row.manhwa_id??row.manga_id??row.maongaId,
 title:row.title||'فصل',
 pages:Array.isArray(pages)?pages:[]
 };
@@ -843,7 +830,7 @@ if(custom)selected.push(custom);
 try{
 status('adminStatus','جاري حفظ المانهوا...');
 let cover=editingManga?editingManga.cover:'';
-const file=$('newCoverFile').files[0];
+const file=$('newCoverFile').files?.[0];
 if(file)cover=await uploadFile(file);
 const payload={title,description,cover,categories:selected};
 if(editingManga){
@@ -899,7 +886,7 @@ const manhwa_id=$('chapterManga').value;
 const title=$('chapterTitle').value.trim();
 if(!manhwa_id||!title)return status('adminStatus','اختاري المانهوا واكتبي عنوان الفصل.');
 const inputs=[...document.querySelectorAll('.chapter-part-file')];
-const files=inputs.map(inp=>inp.files[0]).filter(Boolean);
+const files=inputs.map(inp=>inp.files?.[0]).filter(Boolean);
 if(!editingChapter&&files.length===0){
 return status('adminStatus','اختاري صور أقسام الفصل أولاً.');
 }
@@ -1035,14 +1022,14 @@ return;
 }
 const ids=(data||[]).map(x=>String(x.manhwa_id));
 const list=manga.filter(m=>ids.includes(String(m.id)));
-$('favoritesGrid').innerHTML=list.length
+$('favoritesGrid').innerHTML=list
+.length
 ?list.map(card).join('')
 :'ما ضفتي مانهوا للمفضلة بعد.';
 }
 async function loadHistory(){
 if(!currentUser)return;
-const {data,error}=await db.from('reading_history
-')
+const {data,error}=await db.from('reading_history')
 .select('chapter_id,read_at')
 .eq('user_id',currentUser.id)
 .order('read_at',{ascending:false})
@@ -1095,7 +1082,6 @@ loadHistory(),
 loadNotifications()
 ]);
 }
-/* نظام تخصيص صور الموقع */
 const IMAGE_SETTINGS_KEY='makiEmpireImageSettings';
 const imageDefaults={
 hero:'maki-hero.png',
@@ -1227,7 +1213,7 @@ button.addEventListener('click',()=>resetSiteImage(button.dataset.resetImage));
 });
 ['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(key=>{
 $('file-'+key).addEventListener('change',()=>{
-const file=$('file-'+key).files[0];
+const file=$('file-'+key).files?.[0];
 if(!file)return;
 if(!file.type.startsWith('image/')){
 $('status-'+key).textContent='اختاري ملف صورة صالح.';
@@ -1238,7 +1224,6 @@ $('preview-'+key).innerHTML=<img src="${temporaryURL}" alt="معاينة الص�
 $('status-'+key).textContent='الصورة جاهزة. اضغطي تركيب الصورة حتى تنرفع للموقع.';
 });
 });
-/* أزرار الموقع */
 document.addEventListener('click',async e=>{
 const b=e.target.closest('[data-action]');
 if(!b)return;
@@ -1296,5 +1281,3 @@ await refreshPersonal();
 applyImageSettings();
 }
 start();
-
-
