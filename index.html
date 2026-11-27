@@ -127,13 +127,48 @@ function backToLibrary(){$('mangaDetails').hidden=true;$('library').hidden=false
 function fillMangaSelect(){$('chapterManga').innerHTML=manga.map(m=>`<option value="${safe(m.id)}">${safe(m.title)}</option>`).join('')}
 function renderAdminLists(){if(!isAdmin())return;$('adminMangaList').innerHTML=manga.map(m=>`<div class="admin-row"><span>${safe(m.title)}</span><span><button class="soft-btn" data-action="edit-manga" data-id="${safe(m.id)}">تعديل</button><button class="danger-btn" data-action="delete-manga" data-id="${safe(m.id)}">حذف</button></span></div>`).join('')||'<div class="empty">لا توجد مانهوا.</div>';$('adminChapterList').innerHTML=chapters.map(c=>`<div class="admin-row"><span>${safe(c.title)}</span><span><button class="soft-btn" data-action="edit-chapter" data-id="${safe(c.id)}">تعديل</button><button class="danger-btn" data-action="delete-chapter" data-id="${safe(c.id)}">حذف</button></span></div>`).join('')||'<div class="empty">لا توجد فصول.</div>'}
 async function uploadFile(file){if(!currentUser)throw new Error('سجّلي الدخول أولاً.');const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');const path=`${currentUser.id}/${crypto.randomUUID()}.${ext}`;const{error}=await db.storage.from(BUCKET).upload(path,file,{cacheControl:'3600',upsert:false,contentType:file.type});if(error)throw error;return db.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}
+
+/* تحسين تلقائي خفيف لصور صفحات الفصول قبل رفعها */
+async function enhancePageImage(file){
+  if(!file.type.startsWith('image/'))return file;
+  const url=URL.createObjectURL(file);
+  try{
+    const img=await new Promise((resolve,reject)=>{
+      const image=new Image();
+      image.onload=()=>resolve(image);
+      image.onerror=()=>reject(new Error('تعذر قراءة الصورة للتحسين.'));
+      image.src=url;
+    });
+    const canvas=document.createElement('canvas');
+    canvas.width=img.naturalWidth;
+    canvas.height=img.naturalHeight;
+    const ctx=canvas.getContext('2d');
+    if(!ctx)return file;
+    ctx.filter='contrast(1.13) brightness(1.025) saturate(1.04)';
+    ctx.drawImage(img,0,0);
+    const type=file.type==='image/png'?'image/png':'image/jpeg';
+    const blob=await new Promise(resolve=>
+      canvas.toBlob(resolve,type,type==='image/jpeg'?.94:undefined)
+    );
+    if(!blob)return file;
+    const ext=type==='image/png'?'png':'jpg';
+    return new File(
+      [blob],
+      file.name.replace(/\.[^.]+$/,'')+'-enhanced.'+ext,
+      {type,lastModified:Date.now()}
+    );
+  }finally{
+    URL.revokeObjectURL(url);
+  }
+}
+
 function selectedCategories(){const chosen=[...$('newCategories').selectedOptions].map(o=>o.value),extra=$('newCustomCategory').value.trim();if(extra)chosen.push(extra);return[...new Set(chosen)]}
 async function saveManga(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const title=$('newTitle').value.trim();if(!title)return status('adminStatus','اكتبي اسم المانهوا.');status('adminStatus','جاري الحفظ...');try{let cover_url=editingManga?.cover||'';const file=$('newCoverFile').files[0];if(file)cover_url=await uploadFile(file);const cats=selectedCategories(),payload={title,category:cats.length?cats.join(', '):'عام',cover_url,description:$('newDescription').value.trim()};const query=editingManga?db.from('manhwa').update(payload).eq('id',editingManga.id):db.from('manhwa').insert(payload);const{error}=await query;if(error)throw error;status('adminStatus',editingManga?'تم تعديل المانهوا.':'تمت إضافة المانهوا.');resetMangaForm();await loadManga()}catch(e){status('adminStatus','تعذر الحفظ: '+e.message)}}
 function editManga(id){const m=manga.find(x=>String(x.id)===String(id));if(!m)return;editingManga=m;$('newTitle').value=m.title;$('newDescription').value=m.description;$('newCustomCategory').value='';const cats=categoriesOf(m);[...$('newCategories').options].forEach(o=>o.selected=cats.includes(o.value));$('mangaFormTitle').textContent='تعديل مانهوا';$('saveMangaBtn').textContent='حفظ التعديل';$('cancelMangaEdit').hidden=false;openAdmin();showAdminTab('chaptersAdmin')}
 function resetMangaForm(){editingManga=null;$('newTitle').value='';$('newDescription').value='';$('newCoverFile').value='';$('newCustomCategory').value='';[...$('newCategories').options].forEach(o=>o.selected=false);$('mangaFormTitle').textContent='إضافة مانهوا';$('saveMangaBtn').textContent='إضافة المانهوا';$('cancelMangaEdit').hidden=true}
 async function deleteManga(id){if(!isAdmin()||!confirm('متأكدة من حذف المانهوا؟'))return;const{error}=await db.from('manhwa').delete().eq('id',id);if(error){status('adminStatus','تعذر الحذف: '+error.message);return}status('adminStatus','تم الحذف.');await Promise.all([loadManga(),loadChapters()])}
 async function mergeSelectedImages(){const files=[...$('mergeFiles').files];if(files.length<1||files.length>5){status('mergeStatus','اختاري من صورة واحدة إلى خمس صور فقط.');return}try{status('mergeStatus','جاري دمج الصور...');const imgs=await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};img.onerror=()=>reject(new Error('تعذر قراءة إحدى الصور.'));img.src=url})));const width=Math.max(...imgs.map(i=>i.naturalWidth)),height=imgs.reduce((s,i)=>s+Math.round(i.naturalHeight*width/i.naturalWidth),0);if(height>30000||width*height>50000000)throw new Error('حجم الصور كبير جداً للدمج.');const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');let y=0;imgs.forEach(img=>{const h=Math.round(img.naturalHeight*width/img.naturalWidth);ctx.drawImage(img,0,y,width,h);y+=h});const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.92));if(!blob)throw new Error('فشل إنشاء الصورة المدمجة.');const merged=new File([blob],`merged-${Date.now()}.jpg`,{type:'image/jpeg'});mergedFiles.push(merged);const dt=new DataTransfer();[...$('chapterFiles').files,...mergedFiles].forEach(f=>dt.items.add(f));$('chapterFiles').files=dt.files;$('mergeFiles').value='';status('mergeStatus','تم الدمج وإضافة الصورة إلى قائمة رفع الفصل.');}catch(e){status('mergeStatus','تعذر الدمج: '+e.message)}}
-async function saveChapter(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const manhwa_id=$('chapterManga').value,title=$('chapterTitle').value.trim(),files=[...$('chapterFiles').files];if(!manhwa_id||!title)return status('adminStatus','اختاري المانهوا واكتبي عنوان الفصل.');if(!editingChapter&&!files.length)return status('adminStatus','اختاري صور صفحات الفصل.');status('adminStatus','جاري رفع الصفحات...');try{let pages=editingChapter?[...editingChapter.pages]:[];for(const file of files)pages.push(await uploadFile(file));const payload={manhwa_id,title,pages};const query=editingChapter?db.from('chapters').update({title,pages}).eq('id',editingChapter.id):db.from('chapters').insert(payload);const{error}=await query;if(error)throw error;const wasNew=!editingChapter;status('adminStatus',wasNew?'تم رفع الفصل وصفحاته.':'تم تعديل الفصل.');resetChapterForm();await loadChapters();if(wasNew)await createFollowNotifications(manhwa_id,title)}catch(e){status('adminStatus','تعذر حفظ الفصل: '+e.message)}}
+async function saveChapter(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const manhwa_id=$('chapterManga').value,title=$('chapterTitle').value.trim(),files=[...$('chapterFiles').files];if(!manhwa_id||!title)return status('adminStatus','اختاري المانهوا واكتبي عنوان الفصل.');if(!editingChapter&&!files.length)return status('adminStatus','اختاري صور صفحات الفصل.');status('adminStatus','جاري تحسين ورفع الصفحات...');try{let pages=editingChapter?[...editingChapter.pages]:[];for(const file of files){const improved=await enhancePageImage(file);pages.push(await uploadFile(improved));}const payload={manhwa_id,title,pages};const query=editingChapter?db.from('chapters').update({title,pages}).eq('id',editingChapter.id):db.from('chapters').insert(payload);const{error}=await query;if(error)throw error;const wasNew=!editingChapter;status('adminStatus',wasNew?'تم تحسين الصور ورفع الفصل وصفحاته.':'تم تعديل الفصل.');resetChapterForm();await loadChapters();if(wasNew)await createFollowNotifications(manhwa_id,title)}catch(e){status('adminStatus','تعذر حفظ الفصل: '+e.message)}}
 function editChapter(id){const c=chapters.find(x=>String(x.id)===String(id));if(!c)return;editingChapter=c;$('chapterManga').value=c.mangaId;$('chapterTitle').value=c.title;$('chapterFormTitle').textContent='تعديل الفصل';$('saveChapterBtn').textContent='حفظ التعديل';$('cancelChapterEdit').hidden=false;openAdmin();showAdminTab('chaptersAdmin')}
 function resetChapterForm(){editingChapter=null;$('chapterTitle').value='';$('chapterFiles').value='';$('mergeFiles').value='';mergedFiles=[];$('chapterFormTitle').textContent='إضافة فصل';$('saveChapterBtn').textContent='إضافة الفصل';$('cancelChapterEdit').hidden=true}
 async function deleteChapter(id){if(!isAdmin()||!confirm('متأكدة من حذف هذا الفصل؟'))return;const{error}=await db.from('chapters').delete().eq('id',id);if(error){status('adminStatus','تعذر الحذف: '+error.message);return}status('adminStatus','تم حذف الفصل.');await loadChapters()}
@@ -206,4 +241,4 @@ async function start(){await readImageSettings();applyImageSettings();await load
 start();
 </script>
 </body>
-  </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </html>
