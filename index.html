@@ -53,7 +53,7 @@ footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a
 <section class="category-box"><div class="category-heading"><span>♛</span> التصنيفات <span>★</span></div><div class="filters" id="filters">
 <button class="filter active" data-filter="الكل">الكل</button><button class="filter" data-filter="أكشن">أكشن</button><button class="filter" data-filter="مغامرة">مغامرة</button><button class="filter" data-filter="فانتازيا">فانتازيا</button><button class="filter" data-filter="رومانسي">رومانسي</button><button class="filter" data-filter="ياوي">ياوي</button><button class="filter" data-filter="ياوري">ياوري</button><button class="filter" data-filter="دراما">دراما</button><button class="filter" data-filter="تناسخ">تناسخ</button><button class="filter" data-filter="مدرسي">مدرسي</button><button class="filter" data-filter="تاريخي">تاريخي</button><button class="filter" data-filter="غموض">غموض</button><button class="filter" data-filter="رعب">رعب</button><button class="filter" data-filter="كوميدي">كوميدي</button><button class="filter" data-filter="حريم">حريم</button>
 </div></section>
-<section class="reading-corner"><h2>♡ ركن القراءة</h2><p>خذي استراحة صغيرة بين الحكايات، واتركي خيالج يحلّق</p><img class="mascot" id="makiMascot" src="maki-mascot.png" alt="شخصية ماكي" onerror="this.style.display='none'"></section>
+<section class="reading-corner"><h2>♡ ركن القراءة</h2><p>خذي استراحة صغيرة بين الحكايات، واتركي خيالج يحلّق</p><img class="mascot" id="makiMascot" src="maki-mascot.png" alt="شخصية ماكي"></section>
 <section class="section" id="updates"><div class="section-title"><h2>آخر التحديثات</h2><small>الفصول الجديدة أولاً</small></div><div class="chapter-list" id="chapterList"><div class="empty">جاري تحميل التحديثات...</div></div></section>
 <section class="feature-box"><h3>▌ أعمالنا المميزة</h3><div id="featuredGrid" class="manga-grid"><div class="feature-empty">ماكو مانهوا حالياً</div></div></section>
 <section class="section" id="library"><div class="section-title"><h2>المكتبة</h2><small>جميع الأعمال</small></div><div class="manga-grid" id="mangaGrid"><div class="empty">جاري تحميل المكتبة...</div></div></section>
@@ -79,7 +79,7 @@ footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a
 </div></section>
 <section class="reader" id="reader"><div class="reader-controls"><button class="soft-btn" id="backToDetails">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapter">الفصل السابق</button><button class="soft-btn" id="closeReader">إغلاق الفصل</button><button class="soft-btn" id="nextChapter">الفصل التالي</button></div><h2 id="readerTitle"></h2><div class="reader-pages" id="readerImages"></div><div class="reader-controls"><button class="soft-btn" id="backToDetailsBottom">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapterBottom">الفصل السابق</button><button class="soft-btn" id="nextChapterBottom">الفصل التالي</button></div></section>
 </main>
-<div id="floatingMaki"><div class="maki-bubble">هلا! تعالي نقرأ سوه ♡ !</div><img id="floatingMakiImage" src="maki-floating.png" alt="ماكي العائمة" onerror="this.style.display='none'"></div>
+<div id="floatingMaki"><div class="maki-bubble">هلا! تعالي نقرأ سوه ♡ !</div><img id="floatingMakiImage" src="maki-floating.png" alt="ماكي العائمة"></div>
 <footer id="siteFooter"><div class="logo">♛ ماكي <span>الإمبراطورية</span></div><p>كل حكاية تترك أثراً... وكل فصل يفتح عالماً جديداً.</p><p>© ماكي الإمبراطورية</p></footer>
 <div class="modal" id="accountModal"><div class="modal-box"><button class="close-btn" id="closeAccount">×</button><h2>♛ حساب الإمبراطورية</h2><div id="loggedOut"><input class="field" id="email" type="email" placeholder="البريد الإلكتروني"><input class="field" id="password" type="password" placeholder="كلمة المرور"><button class="main-btn" id="signInBtn">تسجيل الدخول</button><button class="soft-btn" id="signUpBtn">إنشاء حساب</button></div><div id="loggedIn" hidden><p id="userEmail"></p><div class="account-tools"><button class="soft-btn" id="refreshAccount">تحديث البيانات</button><button class="main-btn" id="signOutBtn">تسجيل الخروج</button></div></div><p class="status" id="accountStatus"></p></div></div>
 <script>
@@ -145,8 +145,13 @@ async function readImageSettings(){
 function applyImageSettings(){
   const hero=document.querySelector('.hero-frame'),mascot=$('makiMascot'),floating=$('floatingMakiImage'),footer=$('siteFooter');
   hero.style.backgroundImage=imageSettings.hero?`linear-gradient(90deg,rgba(8,5,10,.04),rgba(8,5,10,.25) 42%,#0b070d 100%),linear-gradient(0deg,#0b070d 0%,transparent 70%),url("${imageSettings.hero}"),radial-gradient(ellipse at 35% 30%,#76213e,#170914 70%)`:'';
+  /* إظهار الشخصيتين دائماً حتى بعد استبدال الصورة الافتراضية بصورة مرفوعة */
+  mascot.style.display='block';
+  floating.style.display='block';
   mascot.src=imageSettings.mascot||imageDefaults.mascot;
   floating.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;
+  mascot.onerror=()=>console.error('تعذر تحميل صورة ركن القراءة:',mascot.src);
+  floating.onerror=()=>console.error('تعذر تحميل صورة ماكي العائمة:',floating.src);
   document.body.style.backgroundImage=imageSettings.background?`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`:'';
   document.body.style.backgroundAttachment=imageSettings.background?'fixed':'';
   document.body.style.backgroundSize=imageSettings.background?'cover':'';
@@ -166,7 +171,7 @@ async function installSiteImage(key){
   if(!file){status('status-'+key,'اختاري صورة من جهازج أولاً.');return}
   if(!file.type.startsWith('image/')){status('status-'+key,'الملف المختار مو صورة.');return}
   status('status-'+key,'جاري رفع الصورة...');
-  try{const url=await uploadFile(file);const previous=imageSettings[key];imageSettings[key]=url;await saveSharedImageSettings();applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة وحفظها للجميع.')}
+  try{const url=await uploadFile(file);imageSettings[key]=url;await saveSharedImageSettings();applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة وحفظها للجميع.')}
   catch(e){status('status-'+key,'تعذر الحفظ: '+e.message)}
 }
 async function resetSiteImage(key){
@@ -189,4 +194,4 @@ async function start(){await readImageSettings();applyImageSettings();await load
 start();
 </script>
 </body>
-                                                                                                                                                                                                                                                                                                                                                                                          </html>
+</html>
