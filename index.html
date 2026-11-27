@@ -39,19 +39,29 @@ main{max-width:1200px;margin:auto;padding:0 20px 50px}.section{margin:25px 0 35p
 footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a994a0;font-size:11px}footer .logo{font-size:18px}
 .image-manager{margin-top:22px;padding:18px;border:1px solid #74304b;border-radius:12px;background:linear-gradient(135deg,#21101d,#100a11)}.image-manager h3{margin-top:0}.image-manager-intro{font-size:11px;color:#c6aebb;line-height:1.9}.image-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.image-slot{padding:13px;border:1px solid #512338;border-radius:10px;background:#100a11;min-width:0}.image-slot h4{margin:0 0 8px;color:#ff9ab6;font-size:13px}.image-preview{height:145px;border:1px dashed #673047;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#080609;color:#a994a0;font-size:11px}.image-preview img{width:100%;height:100%;object-fit:contain}.image-slot .field{margin:9px 0}.image-slot-actions{display:flex;gap:7px;flex-wrap:wrap}.image-slot-actions button{flex:1}.image-status{font-size:10px;color:#ff9ab6;min-height:18px;margin-top:7px}
 .admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.admin-tab.active{background:#6c1235;border-color:var(--pink)}.detail-hero{display:grid;grid-template-columns:220px 1fr;gap:22px;background:linear-gradient(135deg,#1b0d18,#0e090f);border:1px solid #512338;border-radius:13px;padding:18px}.detail-cover{width:100%;max-height:330px;object-fit:cover;border-radius:9px}.detail-description{line-height:2;color:#d9c3ce;font-size:13px;white-space:pre-wrap}.detail-chapters{margin-top:20px}.detail-chapters .chapter-item{margin-bottom:8px}.back-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.merge-note{font-size:11px;color:#c6aebb;line-height:1.8}
+/* تنسيق التعليقات */
+.comments-section{margin-top:22px;padding:18px;background:#120b12;border:1px solid #512338;border-radius:13px}
+.comments-section h3{color:var(--pink);font-size:17px;margin:0 0 14px}
+.comment-count{color:var(--pink);margin-right:5px}
+.comment-card{padding:12px;margin:9px 0;background:#1b0c17;border:1px solid #492033;border-radius:9px}
+.comment-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#bda7b2;font-size:10px}
+.comment-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.9;color:#f8eaf0;margin:8px 0}
+.comment-form{margin-top:15px}
+.comment-form textarea{min-height:85px;resize:vertical}
+.comment-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 @media(max-width:700px){.hero{padding:0 8px;margin:12px auto 22px}.hero-frame{min-height:350px;background-position:center center}.topbar{justify-content:center;padding:10px 12px}.logo{font-size:19px}nav{justify-content:center;gap:6px}nav a,.nav-button{font-size:10px;padding:7px 9px}.hero{padding:0;margin:12px 12px 20px}.hero-frame{min-height:275px;background-position:38% center}.hero-content{right:4%;bottom:15px;max-width:70%}.hero h1{font-size:25px}.hero p{font-size:10px}main{padding:0 12px 40px}.section{margin:22px 0 30px}.section-title h2{font-size:15px}.filters{justify-content:flex-start}.filter{min-width:16.6%;font-size:10px;padding:13px 7px}.reading-corner{padding:14px 0 20px}.mascot{width:100%;max-width:none;height:460px;object-fit:cover;object-position:center 42%;margin-top:12px}#floatingMaki{left:5px;bottom:7px;width:95px}#floatingMakiImage{width:88px;height:105px}.maki-bubble{font-size:9px;padding:6px 7px;border-radius:10px}.maki-bubble:after{width:9px;height:9px;bottom:-6px}.manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cover{height:190px}.card-info{padding:9px}.card-info h3{font-size:12px}.card-info p{font-size:10px}.card-actions button{font-size:9px;padding:6px}.admin-grid{grid-template-columns:1fr}.admin-row{align-items:flex-start;flex-direction:column}.chapter-item{font-size:10px}.image-slots{grid-template-columns:1fr}.detail-hero{grid-template-columns:1fr}.detail-cover{max-width:230px;margin:auto}.reader{padding:8px}.reader-controls button{font-size:10px;padding:7px}}
 @media(min-width:701px){.mascot{width:100%;max-width:1400px;height:620px}#floatingMaki{width:155px}#floatingMakiImage{width:145px;height:175px}.maki-bubble{font-size:13px}}
 /* تعديلات أحجام الصور فقط */
 @media(max-width:700px){
-  #floatingMaki{width:140px;left:5px;bottom:7px}
-  #floatingMakiImage{width:132px;height:158px}
-  .maki-bubble{font-size:9px;padding:6px 7px}
-  .mascot{width:100%;height:270px;max-width:100%;object-fit:contain;object-position:center;margin-top:8px}
+#floatingMaki{width:140px;left:5px;bottom:7px}
+#floatingMakiImage{width:132px;height:158px}
+.maki-bubble{font-size:9px;padding:6px 7px}
+.mascot{width:100%;height:270px;max-width:100%;object-fit:contain;object-position:center;margin-top:8px}
 }
 @media(min-width:701px){
-  #floatingMaki{width:190px}
-  #floatingMakiImage{width:180px;height:215px}
-  .mascot{height:620px}
+#floatingMaki{width:190px}
+#floatingMakiImage{width:180px;height:215px}
+.mascot{height:620px}
 }
 </style>
 </head>
@@ -130,45 +140,27 @@ async function uploadFile(file){if(!currentUser)throw new Error('سجّلي ال
 
 /* تحسين تلقائي خفيف لصور صفحات الفصول قبل رفعها */
 async function enhancePageImage(file){
-  if(!file.type.startsWith('image/'))return file;
-  const url=URL.createObjectURL(file);
-  try{
-    const img=await new Promise((resolve,reject)=>{
-      const image=new Image();
-      image.onload=()=>resolve(image);
-      image.onerror=()=>reject(new Error('تعذر قراءة الصورة للتحسين.'));
-      image.src=url;
-    });
-    const canvas=document.createElement('canvas');
-    canvas.width=img.naturalWidth;
-    canvas.height=img.naturalHeight;
-    const ctx=canvas.getContext('2d');
-    if(!ctx)return file;
-    ctx.filter='contrast(1.13) brightness(1.025) saturate(1.04)';
-    ctx.drawImage(img,0,0);
-    const type=file.type==='image/png'?'image/png':'image/jpeg';
-    const blob=await new Promise(resolve=>
-      canvas.toBlob(resolve,type,type==='image/jpeg'?.94:undefined)
-    );
-    if(!blob)return file;
-    const ext=type==='image/png'?'png':'jpg';
-    return new File(
-      [blob],
-      file.name.replace(/\.[^.]+$/,'')+'-enhanced.'+ext,
-      {type,lastModified:Date.now()}
-    );
-  }finally{
-    URL.revokeObjectURL(url);
-  }
+if(!file.type.startsWith('image/'))return file;
+const url=URL.createObjectURL(file);
+try{
+const img=await new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(new Error('تعذر قراءة الصورة للتحسين.'));image.src=url});
+const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+const ctx=canvas.getContext('2d');if(!ctx)return file;
+ctx.filter='contrast(1.13) brightness(1.025) saturate(1.04)';ctx.drawImage(img,0,0);
+const type=file.type==='image/png'?'image/png':'image/jpeg';
+const blob=await new Promise(resolve=>canvas.toBlob(resolve,type,type==='image/jpeg'?.94:undefined));
+if(!blob)return file;
+const ext=type==='image/png'?'png':'jpg';
+return new File([blob],file.name.replace(/\.[^.]+$/,'')+'-enhanced.'+ext,{type,lastModified:Date.now()});
+}finally{URL.revokeObjectURL(url)}
 }
-
 function selectedCategories(){const chosen=[...$('newCategories').selectedOptions].map(o=>o.value),extra=$('newCustomCategory').value.trim();if(extra)chosen.push(extra);return[...new Set(chosen)]}
 async function saveManga(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const title=$('newTitle').value.trim();if(!title)return status('adminStatus','اكتبي اسم المانهوا.');status('adminStatus','جاري الحفظ...');try{let cover_url=editingManga?.cover||'';const file=$('newCoverFile').files[0];if(file)cover_url=await uploadFile(file);const cats=selectedCategories(),payload={title,category:cats.length?cats.join(', '):'عام',cover_url,description:$('newDescription').value.trim()};const query=editingManga?db.from('manhwa').update(payload).eq('id',editingManga.id):db.from('manhwa').insert(payload);const{error}=await query;if(error)throw error;status('adminStatus',editingManga?'تم تعديل المانهوا.':'تمت إضافة المانهوا.');resetMangaForm();await loadManga()}catch(e){status('adminStatus','تعذر الحفظ: '+e.message)}}
 function editManga(id){const m=manga.find(x=>String(x.id)===String(id));if(!m)return;editingManga=m;$('newTitle').value=m.title;$('newDescription').value=m.description;$('newCustomCategory').value='';const cats=categoriesOf(m);[...$('newCategories').options].forEach(o=>o.selected=cats.includes(o.value));$('mangaFormTitle').textContent='تعديل مانهوا';$('saveMangaBtn').textContent='حفظ التعديل';$('cancelMangaEdit').hidden=false;openAdmin();showAdminTab('chaptersAdmin')}
 function resetMangaForm(){editingManga=null;$('newTitle').value='';$('newDescription').value='';$('newCoverFile').value='';$('newCustomCategory').value='';[...$('newCategories').options].forEach(o=>o.selected=false);$('mangaFormTitle').textContent='إضافة مانهوا';$('saveMangaBtn').textContent='إضافة المانهوا';$('cancelMangaEdit').hidden=true}
 async function deleteManga(id){if(!isAdmin()||!confirm('متأكدة من حذف المانهوا؟'))return;const{error}=await db.from('manhwa').delete().eq('id',id);if(error){status('adminStatus','تعذر الحذف: '+error.message);return}status('adminStatus','تم الحذف.');await Promise.all([loadManga(),loadChapters()])}
-async function mergeSelectedImages(){const files=[...$('mergeFiles').files];if(files.length<1||files.length>5){status('mergeStatus','اختاري من صورة واحدة إلى خمس صور فقط.');return}try{status('mergeStatus','جاري دمج الصور...');const imgs=await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};img.onerror=()=>reject(new Error('تعذر قراءة إحدى الصور.'));img.src=url})));const width=Math.max(...imgs.map(i=>i.naturalWidth)),height=imgs.reduce((s,i)=>s+Math.round(i.naturalHeight*width/i.naturalWidth),0);if(height>30000||width*height>50000000)throw new Error('حجم الصور كبير جداً للدمج.');const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');let y=0;imgs.forEach(img=>{const h=Math.round(img.naturalHeight*width/img.naturalWidth);ctx.drawImage(img,0,y,width,h);y+=h});const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.92));if(!blob)throw new Error('فشل إنشاء الصورة المدمجة.');const merged=new File([blob],`merged-${Date.now()}.jpg`,{type:'image/jpeg'});mergedFiles.push(merged);const dt=new DataTransfer();[...$('chapterFiles').files,...mergedFiles].forEach(f=>dt.items.add(f));$('chapterFiles').files=dt.files;$('mergeFiles').value='';status('mergeStatus','تم الدمج وإضافة الصورة إلى قائمة رفع الفصل.');}catch(e){status('mergeStatus','تعذر الدمج: '+e.message)}}
-async function saveChapter(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const manhwa_id=$('chapterManga').value,title=$('chapterTitle').value.trim(),files=[...$('chapterFiles').files];if(!manhwa_id||!title)return status('adminStatus','اختاري المانهوا واكتبي عنوان الفصل.');if(!editingChapter&&!files.length)return status('adminStatus','اختاري صور صفحات الفصل.');status('adminStatus','جاري تحسين ورفع الصفحات...');try{let pages=editingChapter?[...editingChapter.pages]:[];for(const file of files){const improved=await enhancePageImage(file);pages.push(await uploadFile(improved));}const payload={manhwa_id,title,pages};const query=editingChapter?db.from('chapters').update({title,pages}).eq('id',editingChapter.id):db.from('chapters').insert(payload);const{error}=await query;if(error)throw error;const wasNew=!editingChapter;status('adminStatus',wasNew?'تم تحسين الصور ورفع الفصل وصفحاته.':'تم تعديل الفصل.');resetChapterForm();await loadChapters();if(wasNew)await createFollowNotifications(manhwa_id,title)}catch(e){status('adminStatus','تعذر حفظ الفصل: '+e.message)}}
+async function mergeSelectedImages(){const files=[...$('mergeFiles').files];if(files.length<1||files.length>5){status('mergeStatus','اختاري من صورة واحدة إلى خمس صور فقط.');return}try{status('mergeStatus','جاري دمج الصور...');const imgs=await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const img=new Image(),url=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};img.onerror=()=>reject(new Error('تعذر قراءة إحدى الصور.'));img.src=url})));const width=Math.max(...imgs.map(i=>i.naturalWidth)),height=imgs.reduce((s,i)=>s+Math.round(i.naturalHeight*width/i.naturalWidth),0);if(height>30000||width*height>50000000)throw new Error('حجم الصور كبير جداً للدمج.');const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;const ctx=canvas.getContext('2d');let y=0;imgs.forEach(img=>{const h=Math.round(img.naturalHeight*width/img.naturalWidth);ctx.drawImage(img,0,y,width,h);y+=h});const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/jpeg',.92));if(!blob)throw new Error('فشل إنشاء الصورة المدمجة.');const merged=new File([blob],`merged-${Date.now()}.jpg`,{type:'image/jpeg'});mergedFiles.push(merged);const dt=new DataTransfer();[...$('chapterFiles').files,...mergedFiles].forEach(f=>dt.items.add(f));$('chapterFiles').files=dt.files;$('mergeFiles').value='';status('mergeStatus','تم الدمج وإضافة الصورة إلى قائمة رفع الفصل.')}catch(e){status('mergeStatus','تعذر الدمج: '+e.message)}}
+async function saveChapter(){if(!isAdmin())return status('adminStatus','ما عندج صلاحية الإدارة.');const manhwa_id=$('chapterManga').value,title=$('chapterTitle').value.trim(),files=[...$('chapterFiles').files];if(!manhwa_id||!title)return status('adminStatus','اختاري المانهوا واكتبي عنوان الفصل.');if(!editingChapter&&!files.length)return status('adminStatus','اختاري صور صفحات الفصل.');status('adminStatus','جاري تحسين ورفع الصفحات...');try{let pages=editingChapter?[...editingChapter.pages]:[];for(const file of files){const improved=await enhancePageImage(file);pages.push(await uploadFile(improved))}const payload={manhwa_id,title,pages};const query=editingChapter?db.from('chapters').update({title,pages}).eq('id',editingChapter.id):db.from('chapters').insert(payload);const{error}=await query;if(error)throw error;const wasNew=!editingChapter;status('adminStatus',wasNew?'تم تحسين الصور ورفع الفصل وصفحاته.':'تم تعديل الفصل.');resetChapterForm();await loadChapters();if(wasNew)await createFollowNotifications(manhwa_id,title)}catch(e){status('adminStatus','تعذر حفظ الفصل: '+e.message)}}
 function editChapter(id){const c=chapters.find(x=>String(x.id)===String(id));if(!c)return;editingChapter=c;$('chapterManga').value=c.mangaId;$('chapterTitle').value=c.title;$('chapterFormTitle').textContent='تعديل الفصل';$('saveChapterBtn').textContent='حفظ التعديل';$('cancelChapterEdit').hidden=false;openAdmin();showAdminTab('chaptersAdmin')}
 function resetChapterForm(){editingChapter=null;$('chapterTitle').value='';$('chapterFiles').value='';$('mergeFiles').value='';mergedFiles=[];$('chapterFormTitle').textContent='إضافة فصل';$('saveChapterBtn').textContent='إضافة الفصل';$('cancelChapterEdit').hidden=true}
 async function deleteChapter(id){if(!isAdmin()||!confirm('متأكدة من حذف هذا الفصل؟'))return;const{error}=await db.from('chapters').delete().eq('id',id);if(error){status('adminStatus','تعذر الحذف: '+error.message);return}status('adminStatus','تم حذف الفصل.');await loadChapters()}
@@ -181,64 +173,118 @@ async function createFollowNotifications(manhaId,chapterTitle){const{data,error}
 async function loadNotifications(){if(!currentUser)return;const{data,error}=await db.from('notifications').select('*').eq('user_id',currentUser.id).order('created_at',{ascending:false}).limit(50);if(error)return;const rows=data||[];$('notificationsList').innerHTML=rows.length?rows.map(n=>`<div class="notification ${n.is_read?'':'unread'}"><div>${safe(n.message)}</div><small class="tiny">${new Date(n.created_at).toLocaleString('ar-IQ')}</small>${!n.is_read?`<button class="soft-btn" data-action="read-notif" data-id="${safe(n.id)}">تحديد كمقروء</button>`:''}</div>`).join(''):'<div class="empty">ما عندج إشعارات حالياً.</div>'}
 async function refreshPersonal(){if(!currentUser)return;await Promise.all([loadFavorites(),loadHistory(),loadNotifications()])}
 
+/* نظام التعليقات لكل مانهوا */
+async function renderComments(manhaId){
+const old=$('commentsSection');
+if(old)old.remove();
+
+const section=document.createElement('section');
+section.id='commentsSection';
+section.className='comments-section';
+section.innerHTML=`
+<h3>♡ التعليقات <span class="comment-count" id="commentsCount">0</span></h3>
+<div id="commentsList" class="tiny">جاري تحميل التعليقات...</div>
+<div id="commentComposer" class="comment-form"></div>`;
+$('detailsContent').appendChild(section);
+
+if(currentUser){
+$('commentComposer').innerHTML=`
+<textarea id="commentInput" class="field" maxlength="1000" placeholder="اكتبي تعليقج..."></textarea>
+<div class="comment-actions">
+<button class="main-btn" id="sendCommentBtn">نشر التعليق</button>
+<span class="tiny">الحد الأقصى 1000 حرف</span>
+</div>
+<p class="status" id="commentStatus"></p>`;
+$('sendCommentBtn').onclick=()=>sendComment(manhaId);
+}else{
+$('commentComposer').innerHTML='<p class="tiny">سجّلي الدخول حتى تكدرين تضيفين تعليق.</p>';
+}
+
+const{data,error}=await db.from('comments')
+.select('id,user_id,content,created_at')
+.eq('manhwa_id',String(manhaId))
+.order('created_at',{ascending:false});
+
+if(error){
+$('commentsList').textContent='تعذر تحميل التعليقات: '+error.message;
+return;
+}
+const rows=data||[];
+$('commentsCount').textContent=rows.length;
+$('commentsList').innerHTML=rows.length?rows.map(c=>`
+<article class="comment-card">
+<div class="comment-meta">
+<strong>${c.user_id===currentUser?.id?'تعليقج':'قارئ'}</strong>
+<span>${new Date(c.created_at).toLocaleString('ar-IQ')}</span>
+</div>
+<p class="comment-text">${safe(c.content)}</p>
+${currentUser&&(c.user_id===currentUser.id||isAdmin())?
+`<button class="danger-btn" data-action="delete-comment" data-id="${safe(c.id)}">حذف التعليق</button>`:''}
+</article>`).join(''):'<div class="empty">ماكو تعليقات بعد، كوني أول من يعلّق ♡</div>';
+}
+
+async function sendComment(manhaId){
+if(!currentUser){openAccount();return}
+const input=$('commentInput');
+const content=input?.value.trim()||'';
+if(!content){status('commentStatus','اكتبي تعليق قبل النشر.');return}
+status('commentStatus','جاري نشر التعليق...');
+const{error}=await db.from('comments').insert({
+manhwa_id:String(manhaId),
+user_id:currentUser.id,
+content
+});
+if(error){status('commentStatus','تعذر النشر: '+error.message);return}
+await renderComments(manhaId);
+}
+
+async function deleteComment(id){
+if(!currentUser)return;
+if(!confirm('متأكدة من حذف التعليق؟'))return;
+const{error}=await db.from('comments').delete().eq('id',id);
+if(error){alert('تعذر حذف التعليق: '+error.message);return}
+if(detailsManga)await renderComments(detailsManga.id);
+}
+
+/* نضيف عرض التعليقات إلى فتح تفاصيل المانهوا */
+const originalOpenMangaDetails=openMangaDetails;
+openMangaDetails=function(id){
+originalOpenMangaDetails(id);
+if(detailsManga)renderComments(id);
+};
+
 /* إعدادات الصور المشتركة: تُحفظ في Supabase حتى تظهر لكل الزوار */
 const IMAGE_SETTINGS_KEY='image_settings';
 const imageDefaults={hero:'maki-hero.png',mascot:'maki-mascot.png',floatingMascot:'maki-floating.png',background:'',footer:''};
 let imageSettings={};
 async function readImageSettings(){
-  const {data,error}=await db.from('site_settings').select('value').eq('key',IMAGE_SETTINGS_KEY).maybeSingle();
-  if(error){console.warn('تعذر تحميل إعدادات الصور المشتركة:',error.message);imageSettings={};return}
-  try{imageSettings=data?.value?(typeof data.value==='string'?JSON.parse(data.value):data.value):{}}catch{imageSettings={}}
+const{data,error}=await db.from('site_settings').select('value').eq('key',IMAGE_SETTINGS_KEY).maybeSingle();
+if(error){console.warn('تعذر تحميل إعدادات الصور المشتركة:',error.message);imageSettings={};return}
+try{imageSettings=data?.value?(typeof data.value==='string'?JSON.parse(data.value):data.value):{}}catch{imageSettings={}}
 }
 function applyImageSettings(){
-  const hero=document.querySelector('.hero-frame'),mascot=$('makiMascot'),floating=$('floatingMakiImage'),footer=$('siteFooter');
-  hero.style.backgroundImage=imageSettings.hero?`linear-gradient(90deg,rgba(8,5,10,.04),rgba(8,5,10,.25) 42%,#0b070d 100%),linear-gradient(0deg,#0b070d 0%,transparent 70%),url("${imageSettings.hero}"),radial-gradient(ellipse at 35% 30%,#76213e,#170914 70%)`:'';
-  mascot.style.display='block';
-  floating.style.display='block';
-  mascot.src=imageSettings.mascot||imageDefaults.mascot;
-  floating.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;
-  mascot.onerror=()=>console.error('تعذر تحميل صورة ركن القراءة:',mascot.src);
-  floating.onerror=()=>console.error('تعذر تحميل صورة ماكي العائمة:',floating.src);
-  document.body.style.backgroundImage=imageSettings.background?`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`:'';
-  document.body.style.backgroundAttachment=imageSettings.background?'fixed':'';
-  document.body.style.backgroundSize=imageSettings.background?'cover':'';
-  footer.style.backgroundImage=imageSettings.footer?`linear-gradient(#080609bb,#080609e8),url("${imageSettings.footer}")`:'';
-  footer.style.backgroundSize=imageSettings.footer?'cover':'';
-  footer.style.backgroundPosition='center';
-  updateImagePreviews();
+const hero=document.querySelector('.hero-frame'),mascot=$('makiMascot'),floating=$('floatingMakiImage'),footer=$('siteFooter');
+hero.style.backgroundImage=imageSettings.hero?`linear-gradient(90deg,rgba(8,5,10,.04),rgba(8,5,10,.25) 42%,#0b070d 100%),linear-gradient(0deg,#0b070d 0%,transparent 70%),url("${imageSettings.hero}"),radial-gradient(ellipse at 35% 30%,#76213e,#170914 70%)`:'';
+mascot.style.display='block';floating.style.display='block';
+mascot.src=imageSettings.mascot||imageDefaults.mascot;
+floating.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;
+mascot.onerror=()=>console.error('تعذر تحميل صورة ركن القراءة:',mascot.src);
+floating.onerror=()=>console.error('تعذر تحميل صورة ماكي العائمة:',floating.src);
+document.body.style.backgroundImage=imageSettings.background?`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`:'';
+document.body.style.backgroundAttachment=imageSettings.background?'fixed':'';
+document.body.style.backgroundSize=imageSettings.background?'cover':'';
+footer.style.backgroundImage=imageSettings.footer?`linear-gradient(#080609bb,#080609e8),url("${imageSettings.footer}")`:'';
+footer.style.backgroundSize=imageSettings.footer?'cover':'';
+footer.style.backgroundPosition='center';
+updateImagePreviews();
 }
 function updateImagePreviews(){['hero','mascot','floatingMascot','background','footer'].forEach(k=>{const p=$('preview-'+k);if(!p)return;const url=imageSettings[k]||imageDefaults[k];p.innerHTML=url?`<img src="${safe(url)}" alt="معاينة الصورة">`:'ماكو صورة مخصصة حالياً'})}
-async function saveSharedImageSettings(){
-  const {error}=await db.from('site_settings').upsert({key:IMAGE_SETTINGS_KEY,value:imageSettings,updated_at:new Date().toISOString()},{onConflict:'key'});
-  if(error)throw error;
-}
+async function saveSharedImageSettings(){const{error}=await db.from('site_settings').upsert({key:IMAGE_SETTINGS_KEY,value:imageSettings,updated_at:new Date().toISOString()},{onConflict:'key'});if(error)throw error}
 async function installSiteImage(key){
-  if(!isAdmin())return status('status-'+key,'ما عندج صلاحية الإدارة.');
-  const input=$('file-'+key),file=input.files[0];
-  if(!file){status('status-'+key,'اختاري صورة من جهازج أولاً.');return}
-  if(!file.type.startsWith('image/')){status('status-'+key,'الملف المختار مو صورة.');return}
-  status('status-'+key,'جاري رفع الصورة...');
-  try{const url=await uploadFile(file);imageSettings[key]=url;await saveSharedImageSettings();applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة وحفظها للجميع.')}
-  catch(e){status('status-'+key,'تعذر الحفظ: '+e.message)}
-}
-async function resetSiteImage(key){
-  if(!isAdmin())return;
-  const previous=imageSettings[key];delete imageSettings[key];
-  try{await saveSharedImageSettings();applyImageSettings();$('file-'+key).value='';status('status-'+key,'رجعت الصورة الافتراضية للجميع.')}
-  catch(e){if(previous)imageSettings[key]=previous;status('status-'+key,'تعذر الحفظ: '+e.message)}
-}
-document.querySelectorAll('[data-install-image]').forEach(b=>b.addEventListener('click',()=>installSiteImage(b.dataset.installImage)));
-document.querySelectorAll('[data-reset-image]').forEach(b=>b.addEventListener('click',()=>resetSiteImage(b.dataset.resetImage)));
-['hero','mascot','floatingMascot','background','footer'].forEach(k=>$('file-'+k).addEventListener('change',()=>{const f=$('file-'+k).files[0];if(!f)return;const u=URL.createObjectURL(f);$('preview-'+k).innerHTML=`<img src="${u}" alt="معاينة الصورة المختارة">`;$('status-'+k).textContent='الصورة جاهزة. اضغطي تركيب الصورة حتى تنرفع للموقع.'}));
-
-document.addEventListener('click',async e=>{const open=e.target.closest('[data-open-manga]');if(open){e.preventDefault();openMangaDetails(open.dataset.openManga);return}const b=e.target.closest('[data-action]');if(!b)return;const id=b.dataset.id;switch(b.dataset.action){case'show':openMangaDetails(id);break;case'read':await openReader(id);break;case'favorite':await toggleRelation('favorites',id);break;case'follow':await toggleRelation('follows',id);break;case'edit-manga':editManga(id);break;case'delete-manga':await deleteManga(id);break;case'edit-chapter':editChapter(id);break;case'delete-chapter':await deleteChapter(id);break;case'read-notif':if(currentUser){const{error}=await db.from('notifications').update({is_read:true}).eq('id',id).eq('user_id',currentUser.id);if(error)alert(error.message);await loadNotifications()}break}});
-$('searchInput').addEventListener('input',renderManga);document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderManga()}));
-document.querySelectorAll('[data-admin-tab]').forEach(b=>b.addEventListener('click',()=>showAdminTab(b.dataset.adminTab)));
-$('signInBtn').onclick=signIn;$('signUpBtn').onclick=signUp;$('signOutBtn').onclick=signOut;$('closeAccount').onclick=closeAccount;$('refreshAccount').onclick=refreshPersonal;$('saveMangaBtn').onclick=saveManga;$('saveChapterBtn').onclick=saveChapter;$('cancelMangaEdit').onclick=resetMangaForm;$('cancelChapterEdit').onclick=resetChapterForm;$('closeReader').onclick=closeReader;$('mergeUploadBtn').onclick=mergeSelectedImages;$('backToLibrary').onclick=backToLibrary;
-$('accountModal').addEventListener('click',e=>{if(e.target===$('accountModal'))closeAccount()});
-db.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;updateAccountUI();if(currentUser)setTimeout(refreshPersonal,0)});
-async function start(){await readImageSettings();applyImageSettings();await loadUser();await Promise.all([loadManga(),loadChapters()]);await refreshPersonal();applyImageSettings()}
-start();
-</script>
-</body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </html>
+if(!isAdmin())return status('status-'+key,'ما عندج صلاحية الإدارة.');
+const input=$('file-'+key),file=input.files[0];
+if(!file){status('status-'+key,'اختاري صورة من جهازج أولاً.');return}
+if(!file.type.startsWith('image/')){status('status-'+key,'الملف المختار مو صورة.');return}
+status('status-'+key,'جاري رفع الصورة...');
+try{const url=await uploadFile(file);imageSettings[key]=url;await saveSharedImageSettings();applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة وحفظها للجميع.')}
+catch(e){status('status-'+key,'تعذر الح
