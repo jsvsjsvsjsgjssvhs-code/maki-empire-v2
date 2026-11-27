@@ -24,7 +24,7 @@ main{max-width:1200px;margin:auto;padding:0 20px 50px}.section{margin:25px 0 35p
 .category-box{border:1px solid #512338;border-radius:13px;overflow:hidden;background:#120b12;margin-bottom:25px}.category-heading{padding:13px 16px;background:#1b0d18;font-weight:900;font-size:17px;color:#f7dce7}.category-heading span{color:var(--pink)}
 .filters{display:flex;overflow-x:auto;scrollbar-width:thin;border-top:1px solid #492033}.filter{flex:1;min-width:95px;padding:15px 10px;border:0;border-left:1px solid #35202d;background:#100a11;color:#d9c3ce;font-size:12px}.filter.active{background:#3c1025;color:white;box-shadow:inset 0 -3px var(--bright)}.filter:hover{background:#351021}
 .reading-corner{text-align:center;padding:15px 10px 22px;border-bottom:1px solid #452033}.reading-corner h2{font-size:18px;margin:0 0 8px}.reading-corner p{font-size:10px;color:#bba8b2}
-.mascot{width:300px;height:340px;object-fit:contain;display:block;margin:10px auto 0;filter:drop-shadow(0 0 18px #b0003a44)}.desktop-mascot{display:none;width:100%;max-width:560px;height:510px;object-fit:contain;margin:12px auto 0;filter:drop-shadow(0 0 22px #b0003a66)}
+.mascot{width:300px;height:340px;object-fit:contain;display:block;margin:10px auto 0;filter:drop-shadow(0 0 18px #b0003a44)}
 #floatingMaki{position:fixed;left:18px;bottom:12px;z-index:25;width:165px;display:flex;flex-direction:column;align-items:center;pointer-events:none}#floatingMakiImage{width:155px;height:190px;object-fit:contain;display:block;filter:drop-shadow(0 0 15px #b0003a66)}
 .maki-bubble{position:relative;background:linear-gradient(135deg,#260d1c,#100811);border:1px solid #ef1b58;color:#ffe6ef;border-radius:14px;padding:8px 13px;font-size:12px;font-weight:800;white-space:nowrap;box-shadow:0 0 15px #b0003a55;margin-bottom:4px}.maki-bubble:after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%) rotate(45deg);width:13px;height:13px;background:#1b0c17;border-right:1px solid #ef1b58;border-bottom:1px solid #ef1b58}
 .manga-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.manga-card{overflow:hidden;background:linear-gradient(145deg,#1c101a,#0e090f);border:1px solid #492238;border-radius:12px;transition:.2s}.manga-card:hover{transform:translateY(-3px);border-color:#a52c58;box-shadow:0 8px 22px #0008}
@@ -38,8 +38,8 @@ main{max-width:1200px;margin:auto;padding:0 20px 50px}.section{margin:25px 0 35p
 footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a994a0;font-size:11px}footer .logo{font-size:18px}
 .image-manager{margin-top:22px;padding:18px;border:1px solid #74304b;border-radius:12px;background:linear-gradient(135deg,#21101d,#100a11)}.image-manager h3{margin-top:0}.image-manager-intro{font-size:11px;color:#c6aebb;line-height:1.9}.image-slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.image-slot{padding:13px;border:1px solid #512338;border-radius:10px;background:#100a11;min-width:0}.image-slot h4{margin:0 0 8px;color:#ff9ab6;font-size:13px}.image-preview{height:145px;border:1px dashed #673047;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#080609;color:#a994a0;font-size:11px}.image-preview img{width:100%;height:100%;object-fit:contain}.image-slot .field{margin:9px 0}.image-slot-actions{display:flex;gap:7px;flex-wrap:wrap}.image-slot-actions button{flex:1}.image-status{font-size:10px;color:#ff9ab6;min-height:18px;margin-top:7px}
 .admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.admin-tab.active{background:#6c1235;border-color:var(--pink)}.detail-hero{display:grid;grid-template-columns:220px 1fr;gap:22px;background:linear-gradient(135deg,#1b0d18,#0e090f);border:1px solid #512338;border-radius:13px;padding:18px}.detail-cover{width:100%;max-height:330px;object-fit:cover;border-radius:9px}.detail-description{line-height:2;color:#d9c3ce;font-size:13px;white-space:pre-wrap}.detail-chapters{margin-top:20px}.detail-chapters .chapter-item{margin-bottom:8px}.back-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.merge-note{font-size:11px;color:#c6aebb;line-height:1.8}
-@media(max-width:700px){.topbar{justify-content:center;padding:10px 12px}.logo{font-size:19px}nav{justify-content:center;gap:6px}nav a,.nav-button{font-size:10px;padding:7px 9px}.hero{padding:0;margin:12px 12px 20px}.hero-frame{min-height:275px;background-position:38% center}.hero-content{right:4%;bottom:15px;max-width:70%}.hero h1{font-size:25px}.hero p{font-size:10px}main{padding:0 12px 40px}.section{margin:22px 0 30px}.section-title h2{font-size:15px}.filters{justify-content:flex-start}.filter{min-width:16.6%;font-size:10px;padding:13px 7px}.reading-corner{padding:12px 5px 18px}.mascot{width:270px;height:310px}.desktop-mascot{display:none!important}#floatingMaki{display:none!important}.manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cover{height:190px}.card-info{padding:9px}.card-info h3{font-size:12px}.card-info p{font-size:10px}.card-actions button{font-size:9px;padding:6px}.admin-grid{grid-template-columns:1fr}.admin-row{align-items:flex-start;flex-direction:column}.chapter-item{font-size:10px}.image-slots{grid-template-columns:1fr}.detail-hero{grid-template-columns:1fr}.detail-cover{max-width:230px;margin:auto}.reader{padding:8px}.reader-controls button{font-size:10px;padding:7px}}
-@media(min-width:701px){.mascot{display:none}.desktop-mascot{display:block}}
+@media(max-width:700px){.topbar{justify-content:center;padding:10px 12px}.logo{font-size:19px}nav{justify-content:center;gap:6px}nav a,.nav-button{font-size:10px;padding:7px 9px}.hero{padding:0;margin:12px 12px 20px}.hero-frame{min-height:275px;background-position:38% center}.hero-content{right:4%;bottom:15px;max-width:70%}.hero h1{font-size:25px}.hero p{font-size:10px}main{padding:0 12px 40px}.section{margin:22px 0 30px}.section-title h2{font-size:15px}.filters{justify-content:flex-start}.filter{min-width:16.6%;font-size:10px;padding:13px 7px}.reading-corner{padding:12px 5px 18px}.mascot{width:min(88vw,310px);height:330px}#floatingMaki{left:5px;bottom:7px;width:112px}#floatingMakiImage{width:100px;height:120px}.maki-bubble{font-size:9px;padding:6px 7px;border-radius:10px}.maki-bubble:after{width:9px;height:9px;bottom:-6px}.manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cover{height:190px}.card-info{padding:9px}.card-info h3{font-size:12px}.card-info p{font-size:10px}.card-actions button{font-size:9px;padding:6px}.admin-grid{grid-template-columns:1fr}.admin-row{align-items:flex-start;flex-direction:column}.chapter-item{font-size:10px}.image-slots{grid-template-columns:1fr}.detail-hero{grid-template-columns:1fr}.detail-cover{max-width:230px;margin:auto}.reader{padding:8px}.reader-controls button{font-size:10px;padding:7px}}
+@media(min-width:701px){.mascot{width:420px;height:470px}#floatingMaki{width:185px}#floatingMakiImage{width:175px;height:215px}.maki-bubble{font-size:13px}}
 </style>
 </head>
 <body>
@@ -53,7 +53,7 @@ footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a
 <section class="category-box"><div class="category-heading"><span>♛</span> التصنيفات <span>★</span></div><div class="filters" id="filters">
 <button class="filter active" data-filter="الكل">الكل</button><button class="filter" data-filter="أكشن">أكشن</button><button class="filter" data-filter="مغامرة">مغامرة</button><button class="filter" data-filter="فانتازيا">فانتازيا</button><button class="filter" data-filter="رومانسي">رومانسي</button><button class="filter" data-filter="ياوي">ياوي</button><button class="filter" data-filter="ياوري">ياوري</button><button class="filter" data-filter="دراما">دراما</button><button class="filter" data-filter="تناسخ">تناسخ</button><button class="filter" data-filter="مدرسي">مدرسي</button><button class="filter" data-filter="تاريخي">تاريخي</button><button class="filter" data-filter="غموض">غموض</button><button class="filter" data-filter="رعب">رعب</button><button class="filter" data-filter="كوميدي">كوميدي</button><button class="filter" data-filter="حريم">حريم</button>
 </div></section>
-<section class="reading-corner"><h2>♡ ركن القراءة</h2><p>خذي استراحة صغيرة بين الحكايات، واتركي خيالج يحلّق</p><img class="mascot" id="makiMascot" src="maki-mascot.png" alt="شخصية ماكي" onerror="this.style.display='none'"><img class="desktop-mascot" id="makiDesktopMascot" src="maki-desktop-mascot.png" alt="شخصية ماكي لسطح المكتب" onerror="this.style.display='none'"></section>
+<section class="reading-corner"><h2>♡ ركن القراءة</h2><p>خذي استراحة صغيرة بين الحكايات، واتركي خيالج يحلّق</p><img class="mascot" id="makiMascot" src="maki-mascot.png" alt="شخصية ماكي" onerror="this.style.display='none'"></section>
 <section class="section" id="updates"><div class="section-title"><h2>آخر التحديثات</h2><small>الفصول الجديدة أولاً</small></div><div class="chapter-list" id="chapterList"><div class="empty">جاري تحميل التحديثات...</div></div></section>
 <section class="feature-box"><h3>▌ أعمالنا المميزة</h3><div id="featuredGrid" class="manga-grid"><div class="feature-empty">ماكو مانهوا حالياً</div></div></section>
 <section class="section" id="library"><div class="section-title"><h2>المكتبة</h2><small>جميع الأعمال</small></div><div class="manga-grid" id="mangaGrid"><div class="empty">جاري تحميل المكتبة...</div></div></section>
@@ -61,56 +61,27 @@ footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a
 <section class="section" id="history"><div class="section-title"><h2>سجل القراءة</h2></div><div class="chapter-list" id="historyList"><div class="empty">سجّلي الدخول لعرض سجل القراءة.</div></div></section>
 <section class="section" id="notifications" hidden><div class="section-title"><h2>إشعاراتج</h2></div><div class="chapter-list" id="notificationsList"></div></section>
 <section class="section" id="about"><div class="about-box"><h2>ماكي الإمبراطورية ♛</h2><p>هنا تجتمع الحكايات والعوالم المختلفة. اختاري قصتج، وابدئي رحلتج بين صفحات المانهوا.</p></div></section>
-
-<!-- صفحة تفاصيل المانهوا -->
-<section class="section" id="mangaDetails" hidden>
-<div class="back-row"><button class="soft-btn" id="backToLibrary">← الرجوع للمكتبة</button></div>
-<div id="detailsContent"></div>
-</section>
-
-<!-- لوحة الإدارة المنفصلة -->
-<section class="section" id="management" hidden>
-<div class="section-title"><h2>إدارة الإمبراطورية</h2></div>
-<div class="panel">
-<div class="admin-tabs">
-<button class="soft-btn admin-tab active" data-admin-tab="chaptersAdmin">إضافة / دمج فصل</button>
-<button class="soft-btn admin-tab" data-admin-tab="mangaAdmin">إدارة المانهوا</button>
-<button class="soft-btn admin-tab" data-admin-tab="imagesAdmin">مركز الصور</button>
-</div>
-<div id="chaptersAdmin" class="admin-pane">
-<div class="admin-grid">
-<div><h3 id="mangaFormTitle">إضافة مانهوا</h3><input class="field" id="newTitle" placeholder="اسم المانهوا"><label class="tiny">التصنيفات (يمكن اختيار أكثر من تصنيف)</label>
-<select class="field" id="newCategories" multiple size="7"><option>أكشن</option><option>مغامرة</option><option>فانتازيا</option><option>رومانسي</option><option>ياوي</option><option>ياوري</option><option>دراما</option><option>تناسخ</option><option>مدرسي</option><option>تاريخي</option><option>غموض</option><option>رعب</option><option>كوميدي</option><option>حريم</option></select>
-<input class="field" id="newCustomCategory" placeholder="تصنيف إضافي (اختياري)"><label class="tiny">صورة الغلاف</label><input class="field" id="newCoverFile" type="file" accept="image/*"><textarea class="field" id="newDescription" placeholder="وصف المانهوا"></textarea><button class="main-btn" id="saveMangaBtn">إضافة المانهوا</button><button class="soft-btn" id="cancelMangaEdit" hidden>إلغاء التعديل</button></div>
-<div><h3 id="chapterFormTitle">إضافة فصل</h3><select class="field" id="chapterManga"></select><input class="field" id="chapterTitle" placeholder="عنوان الفصل"><label class="tiny">صور صفحات الفصل (يمكن تحديد عدة صور)</label><input class="field" id="chapterFiles" type="file" accept="image/*" multiple>
-<p class="merge-note">لدمج صور الفصل: حددي من 1 إلى 5 صور من زر الدمج، وسيتم جمعها عمودياً في صورة واحدة قبل رفعها. ويمكنكِ أيضاً رفع الصفحات منفصلة كالمعتاد.</p>
-<input class="field" id="mergeFiles" type="file" accept="image/*" multiple><button class="soft-btn" id="mergeUploadBtn">دمج الصور المختارة وإضافتها للرفع</button><p class="tiny" id="mergeStatus"></p>
-<button class="main-btn" id="saveChapterBtn">إضافة الفصل</button><button class="soft-btn" id="cancelChapterEdit" hidden>إلغاء التعديل</button></div>
-</div><p class="status" id="adminStatus"></p>
-</div>
+<section class="section" id="mangaDetails" hidden><div class="back-row"><button class="soft-btn" id="backToLibrary">← الرجوع للمكتبة</button></div><div id="detailsContent"></div></section>
+<section class="section" id="management" hidden><div class="section-title"><h2>إدارة الإمبراطورية</h2></div><div class="panel">
+<div class="admin-tabs"><button class="soft-btn admin-tab active" data-admin-tab="chaptersAdmin">إضافة / دمج فصل</button><button class="soft-btn admin-tab" data-admin-tab="mangaAdmin">إدارة المانهوا</button><button class="soft-btn admin-tab" data-admin-tab="imagesAdmin">مركز الصور</button></div>
+<div id="chaptersAdmin" class="admin-pane"><div class="admin-grid">
+<div><h3 id="mangaFormTitle">إضافة مانهوا</h3><input class="field" id="newTitle" placeholder="اسم المانهوا"><label class="tiny">التصنيفات (يمكن اختيار أكثر من تصنيف)</label><select class="field" id="newCategories" multiple size="7"><option>أكشن</option><option>مغامرة</option><option>فانتازيا</option><option>رومانسي</option><option>ياوي</option><option>ياوري</option><option>دراما</option><option>تناسخ</option><option>مدرسي</option><option>تاريخي</option><option>غموض</option><option>رعب</option><option>كوميدي</option><option>حريم</option></select><input class="field" id="newCustomCategory" placeholder="تصنيف إضافي (اختياري)"><label class="tiny">صورة الغلاف</label><input class="field" id="newCoverFile" type="file" accept="image/*"><textarea class="field" id="newDescription" placeholder="وصف المانهوا"></textarea><button class="main-btn" id="saveMangaBtn">إضافة المانهوا</button><button class="soft-btn" id="cancelMangaEdit" hidden>إلغاء التعديل</button></div>
+<div><h3 id="chapterFormTitle">إضافة فصل</h3><select class="field" id="chapterManga"></select><input class="field" id="chapterTitle" placeholder="عنوان الفصل"><label class="tiny">صور صفحات الفصل (يمكن تحديد عدة صور)</label><input class="field" id="chapterFiles" type="file" accept="image/*" multiple><p class="merge-note">لدمج صور الفصل: حددي من 1 إلى 5 صور من زر الدمج، وسيتم جمعها عمودياً في صورة واحدة قبل رفعها. ويمكنكِ أيضاً رفع الصفحات منفصلة كالمعتاد.</p><input class="field" id="mergeFiles" type="file" accept="image/*" multiple><button class="soft-btn" id="mergeUploadBtn">دمج الصور المختارة وإضافتها للرفع</button><p class="tiny" id="mergeStatus"></p><button class="main-btn" id="saveChapterBtn">إضافة الفصل</button><button class="soft-btn" id="cancelChapterEdit" hidden>إلغاء التعديل</button></div>
+</div><p class="status" id="adminStatus"></p></div>
 <div id="mangaAdmin" class="admin-pane" hidden><h3>إدارة المانهوا</h3><div class="admin-list" id="adminMangaList"></div><hr><h3>إدارة الفصول</h3><div class="admin-list" id="adminChapterList"></div></div>
-<div id="imagesAdmin" class="admin-pane" hidden>
-<div class="image-manager"><h3>♛ مركز الصور وتخصيص الواجهة</h3><p class="image-manager-intro">اختاري الصور من جهازج وركّبي كل صورة بالمكان اللي تريدينه. تقدرين تبدلينها بأي وقت أو ترجعين للصورة الافتراضية.</p><div class="image-slots">
+<div id="imagesAdmin" class="admin-pane" hidden><div class="image-manager"><h3>♛ مركز الصور وتخصيص الواجهة</h3><p class="image-manager-intro">اختاري الصور من جهازج وركّبي كل صورة بالمكان اللي تريدينه. تقدرين تبدلينها بأي وقت أو ترجعين للصورة الافتراضية.</p><div class="image-slots">
 <div class="image-slot"><h4>1 ـ صورة الواجهة الرئيسية</h4><div class="image-preview" id="preview-hero">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-hero" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="hero">تركيب الصورة</button><button class="soft-btn" data-reset-image="hero">إرجاع الافتراضي</button></div><div class="image-status" id="status-hero"></div></div>
-<div class="image-slot"><h4>2 ـ شخصية ماكي في ركن القراءة</h4><div class="image-preview" id="preview-mascot">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-mascot" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="mascot">تركيب الصورة</button><button class="soft-btn" data-reset-image="mascot">إرجاع الافتراضي</button></div><div class="image-status" id="status-mascot"></div></div>
-<div class="image-slot"><h4>3 ـ شخصية ماكي لسطح المكتب</h4><div class="image-preview" id="preview-desktopMascot">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-desktopMascot" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="desktopMascot">تركيب الصورة</button><button class="soft-btn" data-reset-image="desktopMascot">إرجاع الافتراضي</button></div><div class="image-status" id="status-desktopMascot"></div></div>
-<div class="image-slot"><h4>4 ـ ماكي العائمة بجانب الشاشة</h4><div class="image-preview" id="preview-floatingMascot">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-floatingMascot" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="floatingMascot">تركيب الصورة</button><button class="soft-btn" data-reset-image="floatingMascot">إرجاع الافتراضي</button></div><div class="image-status" id="status-floatingMascot"></div></div>
-<div class="image-slot"><h4>5 ـ خلفية الموقع العامة</h4><div class="image-preview" id="preview-background">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-background" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="background">تركيب الصورة</button><button class="soft-btn" data-reset-image="background">إرجاع الافتراضي</button></div><div class="image-status" id="status-background"></div></div>
-<div class="image-slot"><h4>6 ـ الصورة الزخرفية أسفل الموقع</h4><div class="image-preview" id="preview-footer">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-footer" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="footer">تركيب الصورة</button><button class="soft-btn" data-reset-image="footer">إرجاع الافتراضي</button></div><div class="image-status" id="status-footer"></div></div>
-</div><p class="tiny">الصور تُرفع إلى مساحة التخزين manhwa-images، أما مواضع الصور فتُحفظ بهذا المتصفح والجهاز.</p></div>
-</div>
+<div class="image-slot"><h4>2 ـ شخصية ماكي في ركن القراءة (للهاتف والكمبيوتر)</h4><div class="image-preview" id="preview-mascot">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-mascot" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="mascot">تركيب الصورة</button><button class="soft-btn" data-reset-image="mascot">إرجاع الافتراضي</button></div><div class="image-status" id="status-mascot"></div></div>
+<div class="image-slot"><h4>3 ـ ماكي العائمة بجانب الشاشة</h4><div class="image-preview" id="preview-floatingMascot">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-floatingMascot" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="floatingMascot">تركيب الصورة</button><button class="soft-btn" data-reset-image="floatingMascot">إرجاع الافتراضي</button></div><div class="image-status" id="status-floatingMascot"></div></div>
+<div class="image-slot"><h4>4 ـ خلفية الموقع العامة</h4><div class="image-preview" id="preview-background">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-background" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="background">تركيب الصورة</button><button class="soft-btn" data-reset-image="background">إرجاع الافتراضي</button></div><div class="image-status" id="status-background"></div></div>
+<div class="image-slot"><h4>5 ـ الصورة الزخرفية أسفل الموقع</h4><div class="image-preview" id="preview-footer">الصورة الافتراضية أو الصورة المختارة</div><input class="field" id="file-footer" type="file" accept="image/*"><div class="image-slot-actions"><button class="main-btn" data-install-image="footer">تركيب الصورة</button><button class="soft-btn" data-reset-image="footer">إرجاع الافتراضي</button></div><div class="image-status" id="status-footer"></div></div>
+</div><p class="tiny">الصور تُرفع إلى مساحة التخزين manhwa-images، وتُحفظ إعداداتها في قاعدة البيانات لتظهر لجميع الزوار.</p></div></div>
 </div></section>
-
-<section class="reader" id="reader">
-<div class="reader-controls"><button class="soft-btn" id="backToDetails">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapter">الفصل السابق</button><button class="soft-btn" id="closeReader">إغلاق الفصل</button><button class="soft-btn" id="nextChapter">الفصل التالي</button></div>
-<h2 id="readerTitle"></h2><div class="reader-pages" id="readerImages"></div>
-<div class="reader-controls"><button class="soft-btn" id="backToDetailsBottom">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapterBottom">الفصل السابق</button><button class="soft-btn" id="nextChapterBottom">الفصل التالي</button></div>
-</section>
+<section class="reader" id="reader"><div class="reader-controls"><button class="soft-btn" id="backToDetails">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapter">الفصل السابق</button><button class="soft-btn" id="closeReader">إغلاق الفصل</button><button class="soft-btn" id="nextChapter">الفصل التالي</button></div><h2 id="readerTitle"></h2><div class="reader-pages" id="readerImages"></div><div class="reader-controls"><button class="soft-btn" id="backToDetailsBottom">تفاصيل المانهوا</button><button class="soft-btn" id="prevChapterBottom">الفصل السابق</button><button class="soft-btn" id="nextChapterBottom">الفصل التالي</button></div></section>
 </main>
 <div id="floatingMaki"><div class="maki-bubble">هلا! تعالي نقرأ سوه ♡ !</div><img id="floatingMakiImage" src="maki-floating.png" alt="ماكي العائمة" onerror="this.style.display='none'"></div>
 <footer id="siteFooter"><div class="logo">♛ ماكي <span>الإمبراطورية</span></div><p>كل حكاية تترك أثراً... وكل فصل يفتح عالماً جديداً.</p><p>© ماكي الإمبراطورية</p></footer>
 <div class="modal" id="accountModal"><div class="modal-box"><button class="close-btn" id="closeAccount">×</button><h2>♛ حساب الإمبراطورية</h2><div id="loggedOut"><input class="field" id="email" type="email" placeholder="البريد الإلكتروني"><input class="field" id="password" type="password" placeholder="كلمة المرور"><button class="main-btn" id="signInBtn">تسجيل الدخول</button><button class="soft-btn" id="signUpBtn">إنشاء حساب</button></div><div id="loggedIn" hidden><p id="userEmail"></p><div class="account-tools"><button class="soft-btn" id="refreshAccount">تحديث البيانات</button><button class="main-btn" id="signOutBtn">تسجيل الخروج</button></div></div><p class="status" id="accountStatus"></p></div></div>
-
 <script>
 'use strict';
 const SUPABASE_URL='https://iikzgiainkyhmrkalhey.supabase.co';
@@ -162,15 +133,51 @@ async function createFollowNotifications(manhaId,chapterTitle){const{data,error}
 async function loadNotifications(){if(!currentUser)return;const{data,error}=await db.from('notifications').select('*').eq('user_id',currentUser.id).order('created_at',{ascending:false}).limit(50);if(error)return;const rows=data||[];$('notificationsList').innerHTML=rows.length?rows.map(n=>`<div class="notification ${n.is_read?'':'unread'}"><div>${safe(n.message)}</div><small class="tiny">${new Date(n.created_at).toLocaleString('ar-IQ')}</small>${!n.is_read?`<button class="soft-btn" data-action="read-notif" data-id="${safe(n.id)}">تحديد كمقروء</button>`:''}</div>`).join(''):'<div class="empty">ما عندج إشعارات حالياً.</div>'}
 async function refreshPersonal(){if(!currentUser)return;await Promise.all([loadFavorites(),loadHistory(),loadNotifications()])}
 
-/* تخصيص صور الموقع: ستة مواضع محفوظة */
-const IMAGE_SETTINGS_KEY='makiEmpireImageSettings',imageDefaults={hero:'maki-hero.png',mascot:'maki-mascot.png',desktopMascot:'maki-desktop-mascot.png',floatingMascot:'maki-floating.png',background:'',footer:''};let imageSettings={};
-function readImageSettings(){try{imageSettings=JSON.parse(localStorage.getItem(IMAGE_SETTINGS_KEY)||'{}')||{}}catch{imageSettings={}}}
-function applyImageSettings(){const hero=document.querySelector('.hero-frame'),mascot=$('makiMascot'),desktop=$('makiDesktopMascot'),floating=$('floatingMakiImage'),footer=$('siteFooter');hero.style.backgroundImage=imageSettings.hero?`linear-gradient(90deg,rgba(8,5,10,.04),rgba(8,5,10,.25) 42%,#0b070d 100%),linear-gradient(0deg,#0b070d 0%,transparent 70%),url("${imageSettings.hero}"),radial-gradient(ellipse at 35% 30%,#76213e,#170914 70%)`:'';mascot.src=imageSettings.mascot||imageDefaults.mascot;desktop.src=imageSettings.desktopMascot||imageDefaults.desktopMascot;floating.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;document.body.style.backgroundImage=imageSettings.background?`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`:'';document.body.style.backgroundAttachment=imageSettings.background?'fixed':'';document.body.style.backgroundSize=imageSettings.background?'cover':'';footer.style.backgroundImage=imageSettings.footer?`linear-gradient(#080609bb,#080609e8),url("${imageSettings.footer}")`:'';footer.style.backgroundSize=imageSettings.footer?'cover':'';footer.style.backgroundPosition='center';updateImagePreviews()}
-function updateImagePreviews(){['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(k=>{const p=$('preview-'+k);if(!p)return;const url=imageSettings[k]||imageDefaults[k];p.innerHTML=url?`<img src="${safe(url)}" alt="معاينة الصورة">`:'ماكو صورة مخصصة حالياً'})}
-async function installSiteImage(key){if(!isAdmin())return status('status-'+key,'ما عندج صلاحية الإدارة.');const input=$('file-'+key),file=input.files[0];if(!file){status('status-'+key,'اختاري صورة من جهازج أولاً.');return}if(!file.type.startsWith('image/')){status('status-'+key,'الملف المختار مو صورة.');return}status('status-'+key,'جاري رفع الصورة...');try{imageSettings[key]=await uploadFile(file);localStorage.setItem(IMAGE_SETTINGS_KEY,JSON.stringify(imageSettings));applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة بنجاح.')}catch(e){status('status-'+key,'تعذر رفع الصورة: '+e.message)}}
-function resetSiteImage(key){if(!isAdmin())return;delete imageSettings[key];localStorage.setItem(IMAGE_SETTINGS_KEY,JSON.stringify(imageSettings));applyImageSettings();$('file-'+key).value='';status('status-'+key,'رجعت الصورة الافتراضية.')}
-document.querySelectorAll('[data-install-image]').forEach(b=>b.addEventListener('click',()=>installSiteImage(b.dataset.installImage)));document.querySelectorAll('[data-reset-image]').forEach(b=>b.addEventListener('click',()=>resetSiteImage(b.dataset.resetImage)));
-['hero','mascot','desktopMascot','floatingMascot','background','footer'].forEach(k=>$('file-'+k).addEventListener('change',()=>{const f=$('file-'+k).files[0];if(!f)return;const u=URL.createObjectURL(f);$('preview-'+k).innerHTML=`<img src="${u}" alt="معاينة الصورة المختارة">`;$('status-'+k).textContent='الصورة جاهزة. اضغطي تركيب الصورة حتى تنرفع للموقع.'}));
+/* إعدادات الصور المشتركة: تُحفظ في Supabase حتى تظهر لكل الزوار */
+const IMAGE_SETTINGS_KEY='image_settings';
+const imageDefaults={hero:'maki-hero.png',mascot:'maki-mascot.png',floatingMascot:'maki-floating.png',background:'',footer:''};
+let imageSettings={};
+async function readImageSettings(){
+  const {data,error}=await db.from('site_settings').select('value').eq('key',IMAGE_SETTINGS_KEY).maybeSingle();
+  if(error){console.warn('تعذر تحميل إعدادات الصور المشتركة:',error.message);imageSettings={};return}
+  try{imageSettings=data?.value?(typeof data.value==='string'?JSON.parse(data.value):data.value):{}}catch{imageSettings={}}
+}
+function applyImageSettings(){
+  const hero=document.querySelector('.hero-frame'),mascot=$('makiMascot'),floating=$('floatingMakiImage'),footer=$('siteFooter');
+  hero.style.backgroundImage=imageSettings.hero?`linear-gradient(90deg,rgba(8,5,10,.04),rgba(8,5,10,.25) 42%,#0b070d 100%),linear-gradient(0deg,#0b070d 0%,transparent 70%),url("${imageSettings.hero}"),radial-gradient(ellipse at 35% 30%,#76213e,#170914 70%)`:'';
+  mascot.src=imageSettings.mascot||imageDefaults.mascot;
+  floating.src=imageSettings.floatingMascot||imageDefaults.floatingMascot;
+  document.body.style.backgroundImage=imageSettings.background?`linear-gradient(#080609d9,#080609e8),url("${imageSettings.background}")`:'';
+  document.body.style.backgroundAttachment=imageSettings.background?'fixed':'';
+  document.body.style.backgroundSize=imageSettings.background?'cover':'';
+  footer.style.backgroundImage=imageSettings.footer?`linear-gradient(#080609bb,#080609e8),url("${imageSettings.footer}")`:'';
+  footer.style.backgroundSize=imageSettings.footer?'cover':'';
+  footer.style.backgroundPosition='center';
+  updateImagePreviews();
+}
+function updateImagePreviews(){['hero','mascot','floatingMascot','background','footer'].forEach(k=>{const p=$('preview-'+k);if(!p)return;const url=imageSettings[k]||imageDefaults[k];p.innerHTML=url?`<img src="${safe(url)}" alt="معاينة الصورة">`:'ماكو صورة مخصصة حالياً'})}
+async function saveSharedImageSettings(){
+  const {error}=await db.from('site_settings').upsert({key:IMAGE_SETTINGS_KEY,value:imageSettings,updated_at:new Date().toISOString()},{onConflict:'key'});
+  if(error)throw error;
+}
+async function installSiteImage(key){
+  if(!isAdmin())return status('status-'+key,'ما عندج صلاحية الإدارة.');
+  const input=$('file-'+key),file=input.files[0];
+  if(!file){status('status-'+key,'اختاري صورة من جهازج أولاً.');return}
+  if(!file.type.startsWith('image/')){status('status-'+key,'الملف المختار مو صورة.');return}
+  status('status-'+key,'جاري رفع الصورة...');
+  try{const url=await uploadFile(file);const previous=imageSettings[key];imageSettings[key]=url;await saveSharedImageSettings();applyImageSettings();input.value='';status('status-'+key,'تم تركيب الصورة وحفظها للجميع.')}
+  catch(e){status('status-'+key,'تعذر الحفظ: '+e.message)}
+}
+async function resetSiteImage(key){
+  if(!isAdmin())return;
+  const previous=imageSettings[key];delete imageSettings[key];
+  try{await saveSharedImageSettings();applyImageSettings();$('file-'+key).value='';status('status-'+key,'رجعت الصورة الافتراضية للجميع.')}
+  catch(e){if(previous)imageSettings[key]=previous;status('status-'+key,'تعذر الحفظ: '+e.message)}
+}
+document.querySelectorAll('[data-install-image]').forEach(b=>b.addEventListener('click',()=>installSiteImage(b.dataset.installImage)));
+document.querySelectorAll('[data-reset-image]').forEach(b=>b.addEventListener('click',()=>resetSiteImage(b.dataset.resetImage)));
+['hero','mascot','floatingMascot','background','footer'].forEach(k=>$('file-'+k).addEventListener('change',()=>{const f=$('file-'+k).files[0];if(!f)return;const u=URL.createObjectURL(f);$('preview-'+k).innerHTML=`<img src="${u}" alt="معاينة الصورة المختارة">`;$('status-'+k).textContent='الصورة جاهزة. اضغطي تركيب الصورة حتى تنرفع للموقع.'}));
 
 document.addEventListener('click',async e=>{const open=e.target.closest('[data-open-manga]');if(open){e.preventDefault();openMangaDetails(open.dataset.openManga);return}const b=e.target.closest('[data-action]');if(!b)return;const id=b.dataset.id;switch(b.dataset.action){case'show':openMangaDetails(id);break;case'read':await openReader(id);break;case'favorite':await toggleRelation('favorites',id);break;case'follow':await toggleRelation('follows',id);break;case'edit-manga':editManga(id);break;case'delete-manga':await deleteManga(id);break;case'edit-chapter':editChapter(id);break;case'delete-chapter':await deleteChapter(id);break;case'read-notif':if(currentUser){const{error}=await db.from('notifications').update({is_read:true}).eq('id',id).eq('user_id',currentUser.id);if(error)alert(error.message);await loadNotifications()}break}});
 $('searchInput').addEventListener('input',renderManga);document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderManga()}));
@@ -178,8 +185,8 @@ document.querySelectorAll('[data-admin-tab]').forEach(b=>b.addEventListener('cli
 $('signInBtn').onclick=signIn;$('signUpBtn').onclick=signUp;$('signOutBtn').onclick=signOut;$('closeAccount').onclick=closeAccount;$('refreshAccount').onclick=refreshPersonal;$('saveMangaBtn').onclick=saveManga;$('saveChapterBtn').onclick=saveChapter;$('cancelMangaEdit').onclick=resetMangaForm;$('cancelChapterEdit').onclick=resetChapterForm;$('closeReader').onclick=closeReader;$('mergeUploadBtn').onclick=mergeSelectedImages;$('backToLibrary').onclick=backToLibrary;
 $('accountModal').addEventListener('click',e=>{if(e.target===$('accountModal'))closeAccount()});
 db.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;updateAccountUI();if(currentUser)setTimeout(refreshPersonal,0)});
-async function start(){readImageSettings();applyImageSettings();await loadUser();await Promise.all([loadManga(),loadChapters()]);await refreshPersonal();applyImageSettings()}
+async function start(){await readImageSettings();applyImageSettings();await loadUser();await Promise.all([loadManga(),loadChapters()]);await refreshPersonal();applyImageSettings()}
 start();
 </script>
 </body>
- </html>
+                                                                                                                                                                                                                                                                                                                                                                                          </html>
