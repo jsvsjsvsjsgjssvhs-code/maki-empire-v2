@@ -41,6 +41,18 @@ footer{border-top:1px solid #492033;text-align:center;padding:25px 15px;color:#a
 .admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.admin-tab.active{background:#6c1235;border-color:var(--pink)}.detail-hero{display:grid;grid-template-columns:220px 1fr;gap:22px;background:linear-gradient(135deg,#1b0d18,#0e090f);border:1px solid #512338;border-radius:13px;padding:18px}.detail-cover{width:100%;max-height:330px;object-fit:cover;border-radius:9px}.detail-description{line-height:2;color:#d9c3ce;font-size:13px;white-space:pre-wrap}.detail-chapters{margin-top:20px}.detail-chapters .chapter-item{margin-bottom:8px}.back-row{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.merge-note{font-size:11px;color:#c6aebb;line-height:1.8}
 @media(max-width:700px){.hero{padding:0 8px;margin:12px auto 22px}.hero-frame{min-height:350px;background-position:center center}.topbar{justify-content:center;padding:10px 12px}.logo{font-size:19px}nav{justify-content:center;gap:6px}nav a,.nav-button{font-size:10px;padding:7px 9px}.hero{padding:0;margin:12px 12px 20px}.hero-frame{min-height:275px;background-position:38% center}.hero-content{right:4%;bottom:15px;max-width:70%}.hero h1{font-size:25px}.hero p{font-size:10px}main{padding:0 12px 40px}.section{margin:22px 0 30px}.section-title h2{font-size:15px}.filters{justify-content:flex-start}.filter{min-width:16.6%;font-size:10px;padding:13px 7px}.reading-corner{padding:14px 0 20px}.mascot{width:100%;max-width:none;height:460px;object-fit:cover;object-position:center 42%;margin-top:12px}#floatingMaki{left:5px;bottom:7px;width:95px}#floatingMakiImage{width:88px;height:105px}.maki-bubble{font-size:9px;padding:6px 7px;border-radius:10px}.maki-bubble:after{width:9px;height:9px;bottom:-6px}.manga-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cover{height:190px}.card-info{padding:9px}.card-info h3{font-size:12px}.card-info p{font-size:10px}.card-actions button{font-size:9px;padding:6px}.admin-grid{grid-template-columns:1fr}.admin-row{align-items:flex-start;flex-direction:column}.chapter-item{font-size:10px}.image-slots{grid-template-columns:1fr}.detail-hero{grid-template-columns:1fr}.detail-cover{max-width:230px;margin:auto}.reader{padding:8px}.reader-controls button{font-size:10px;padding:7px}}
 @media(min-width:701px){.mascot{width:100%;max-width:1400px;height:620px}#floatingMaki{width:155px}#floatingMakiImage{width:145px;height:175px}.maki-bubble{font-size:13px}}
+/* تعديلات أحجام الصور فقط */
+@media(max-width:700px){
+  #floatingMaki{width:140px;left:5px;bottom:7px}
+  #floatingMakiImage{width:132px;height:158px}
+  .maki-bubble{font-size:9px;padding:6px 7px}
+  .mascot{width:100%;height:270px;max-width:100%;object-fit:contain;object-position:center;margin-top:8px}
+}
+@media(min-width:701px){
+  #floatingMaki{width:190px}
+  #floatingMakiImage{width:180px;height:215px}
+  .mascot{height:620px}
+}
 </style>
 </head>
 <body>
